@@ -70,6 +70,12 @@ img,video{max-width:100%}
 @media (max-width:640px){
   section{padding-left:20px!important;padding-right:20px!important;padding-top:56px!important;padding-bottom:56px!important}
   .ik-grid-2c{grid-template-columns:1fr!important;gap:24px!important}
+  /* Nav: a 400px la marca y el boton no caben en una linea */
+  nav{padding:12px 20px!important;gap:12px!important}
+  nav .ik-brand{flex-direction:column!important;align-items:flex-start!important;gap:2px!important;min-width:0}
+  nav .ik-brand>span:first-child{font-size:22px!important}
+  nav .ik-brand-sub{font-size:9.5px!important;letter-spacing:0.1em!important}
+  nav .ik-cta{padding:9px 14px!important;font-size:14px!important;flex-shrink:0}
   /* En una columna, las celdas de paquetes pierden el borde izquierdo y el padding lateral */
   .ik-grid-2c>div{border-left:0!important;padding-left:0!important;padding-right:0!important}
   /* Hero: mismo montaje, mas corto y con el texto pegado al borde de 20px */
@@ -93,7 +99,7 @@ img,video{max-width:100%}
 
   <!-- NAV -->
   <nav style="position:sticky;top:0;z-index:20;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:18px 56px;background:#f3f2f2;border-bottom:1px solid rgba(32,31,29,0.12)">
-    <a href="#" style="display:flex;align-items:baseline;gap:12px;text-decoration:none">
+    <a href="#" class="ik-brand" style="display:flex;align-items:baseline;gap:12px;text-decoration:none;min-width:0">
       <span style="font-family:'Cormorant Garamond',serif;font-size:30px;letter-spacing:0.08em;color:#201f1d">IKAAN</span>
       <span class="ik-brand-sub" style="font-family:'Cormorant Garamond',serif;font-weight:600;font-size:15px;letter-spacing:0.12em;text-transform:uppercase;color:#7d5411">Eventos Empresariales</span>
     </a>

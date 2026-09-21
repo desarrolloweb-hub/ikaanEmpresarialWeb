@@ -81,6 +81,7 @@ img,video{max-width:100%}
   section{padding-left:32px!important;padding-right:32px!important}
   /* #contacto es el grid; sus hijos son la columna de datos y el formulario */
   .ik-grid-2,.ik-grid-3,.ik-grid-4,.ik-contact-grid,.ik-intro-split{grid-template-columns:1fr!important;gap:44px!important}
+  .ik-act-grid{grid-template-columns:repeat(2,1fr)!important;gap:28px!important}
   /* Los bordes verticales de las rejillas no tienen sentido en una sola columna */
   .ik-grid-3>div,.ik-grid-4>div{border-left:0!important;padding-left:0!important;padding-right:0!important}
   .ik-grid-3>div+div,.ik-grid-4>div+div{border-top:1px solid rgba(32,31,29,0.14)}
@@ -94,6 +95,7 @@ img,video{max-width:100%}
   .ik-espacios-grid{grid-template-columns:repeat(2,1fr)!important}
 }
 @media (max-width:640px){
+  .ik-act-grid{grid-template-columns:1fr!important}
   section{padding-left:20px!important;padding-right:20px!important;padding-top:56px!important;padding-bottom:56px!important}
   .ik-grid-2c{grid-template-columns:1fr!important;gap:24px!important}
   .ik-espacios-grid{grid-template-columns:1fr!important;gap:24px!important}
@@ -169,7 +171,11 @@ img,video{max-width:100%}
     <div style="position:absolute;inset:0;background:linear-gradient(180deg, rgba(32,31,29,0.10) 0%, rgba(32,31,29,0.62) 100%);pointer-events:none"></div>
     <div class="ik-hero-copy" style="position:absolute;left:0;right:0;bottom:0;padding:0 56px 72px;max-width:760px;color:#f8f4f4">
       <span style="display:block;font-size:13px;letter-spacing:0.14em;text-transform:uppercase;margin-bottom:16px;opacity:0.85">Eventos empresariales</span>
+<<<<<<< Updated upstream
       <h1 style="font-family:'Cormorant Garamond',serif;font-weight:400;font-size:clamp(42px,6vw,74px);line-height:1.08;margin:0;text-box:trim-both cap alphabetic">Un espacio diseñado para inspirar a tu equipo y reconectar</h1>
+=======
+      <h1 style="font-family:'Cormorant Garamond',serif;font-weight:400;font-size:clamp(42px,6vw,74px);line-height:1.08;margin:0;text-box:trim-both cap alphabetic">Un espacio diseñado para inspirar y reconectar con tu equipo</h1>
+>>>>>>> Stashed changes
       <div style="display:flex;gap:16px;margin-top:34px;flex-wrap:wrap">
         <a href="#contacto" style="display:inline-flex;align-items:center;font-family:'Cormorant Garamond',serif;font-weight:600;font-size:15px;color:#201f1d;border:1px solid #f8f4f4;border-radius:4px;padding:14px 28px;text-decoration:none;background-color:#8DB4B7" style-hover="background:#eae7e7">Cotizar mi evento</a>
         <a href="#espacios" style="display:inline-flex;align-items:center;font-family:'Cormorant Garamond',serif;font-weight:600;font-size:15px;color:#f8f4f4;border:1px solid #f8f4f4;border-radius:4px;padding:14px 28px;text-decoration:none" style-hover="background:rgba(248,244,244,0.15)">Ver espacios</a>
@@ -400,11 +406,23 @@ img,video{max-width:100%}
   <section id="actividades" style="padding:96px 56px;border-bottom:1px solid rgba(32,31,29,0.12)">
     <span class="ik-tag">Actividades</span>
     <h2 class="ik-h2" style="margin-bottom:48px">Actividades de Integración y Bienestar</h2>
-    <div class="ik-grid-4" style="display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:1px solid rgba(32,31,29,0.14);border-bottom:1px solid rgba(32,31,29,0.14)">
-      <div style="padding:34px 28px;font-family:'Cormorant Garamond',serif;font-size:19px;letter-spacing:0.08em;text-transform:uppercase;line-height:1.5">Caminatas guiadas</div>
-      <div style="padding:34px 28px;border-left:1px solid rgba(32,31,29,0.14);font-family:'Cormorant Garamond',serif;font-size:19px;letter-spacing:0.08em;text-transform:uppercase;line-height:1.5">Kayak en el arroyo</div>
-      <div style="padding:34px 28px;border-left:1px solid rgba(32,31,29,0.14);font-family:'Cormorant Garamond',serif;font-size:19px;letter-spacing:0.08em;text-transform:uppercase;line-height:1.5">Yoga y meditación en el laberinto</div>
-      <div style="padding:34px 28px;border-left:1px solid rgba(32,31,29,0.14);font-family:'Cormorant Garamond',serif;font-size:19px;letter-spacing:0.08em;text-transform:uppercase;line-height:1.5">Dinámicas de integración</div>
+    <div class="ik-act-grid" style="display:grid;grid-template-columns:repeat(4,1fr);gap:32px">
+      <div style="display:flex;flex-direction:column">
+        <image-slot id="actividad-1" shape="rect" placeholder="Foto: caminata guiada por los senderos" style="width:100%;aspect-ratio:4/3;display:block;border-radius:6px;overflow:hidden"></image-slot>
+        <div style="padding:20px 0 0;font-family:'Cormorant Garamond',serif;font-size:19px;letter-spacing:0.08em;text-transform:uppercase;line-height:1.5">Caminatas guiadas</div>
+      </div>
+      <div style="display:flex;flex-direction:column">
+        <image-slot id="actividad-2" shape="rect" placeholder="Foto: kayak en el arroyo" style="width:100%;aspect-ratio:4/3;display:block;border-radius:6px;overflow:hidden"></image-slot>
+        <div style="padding:20px 0 0;font-family:'Cormorant Garamond',serif;font-size:19px;letter-spacing:0.08em;text-transform:uppercase;line-height:1.5">Kayak en el arroyo</div>
+      </div>
+      <div style="display:flex;flex-direction:column">
+        <image-slot id="actividad-3" shape="rect" placeholder="Foto: sesión de yoga en el laberinto" style="width:100%;aspect-ratio:4/3;display:block;border-radius:6px;overflow:hidden"></image-slot>
+        <div style="padding:20px 0 0;font-family:'Cormorant Garamond',serif;font-size:19px;letter-spacing:0.08em;text-transform:uppercase;line-height:1.5">Yoga y meditación en el laberinto</div>
+      </div>
+      <div style="display:flex;flex-direction:column">
+        <image-slot id="actividad-4" shape="rect" placeholder="Foto: dinámica de integración del equipo" style="width:100%;aspect-ratio:4/3;display:block;border-radius:6px;overflow:hidden"></image-slot>
+        <div style="padding:20px 0 0;font-family:'Cormorant Garamond',serif;font-size:19px;letter-spacing:0.08em;text-transform:uppercase;line-height:1.5">Dinámicas de integración</div>
+      </div>
     </div>
   </section>
 

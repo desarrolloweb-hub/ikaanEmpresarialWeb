@@ -40,6 +40,28 @@ img,video{max-width:100%}
 }
 .ik-lead{font-size:16.5px;line-height:1.75;color:rgba(32,31,29,0.78);margin:0 0 28px;max-width:62ch}
 
+/* ---------- ENCABEZADO DE SECCION DESTACADO ---------- */
+/* Pedido del cliente: que se note el inicio de la seccion. Titulo grande, acento en cursiva dorada */
+.ik-sec-head{position:relative;margin:0 0 64px;padding-right:calc(min(44vw,700px) - 80px)}
+.ik-sec-head>*:not(.ik-sec-deco){position:relative;max-width:1000px}
+/* Rama floral (ilustracion original, colores de marca): crece de izquierda a derecha y sale por la orilla */
+.ik-sec-deco{position:absolute;right:-56px;top:50%;width:min(44vw,700px);height:auto;aspect-ratio:760/440;
+  transform:translateY(-50%) rotate(180deg);pointer-events:none;user-select:none}
+@media (max-width:1180px){.ik-sec-head{padding-right:calc(min(30vw,360px) + 16px)}.ik-sec-deco{width:min(38vw,440px);opacity:.6}}
+@media (max-width:1024px){.ik-sec-deco{right:-32px}}
+@media (max-width:760px){.ik-sec-head{padding-right:0}.ik-sec-deco{display:none}}
+.ik-sec-head .ik-tag{
+  display:inline-flex;align-items:center;gap:14px;background:none;padding:0;margin-bottom:22px;
+  font-size:14px;letter-spacing:0.28em;color:#7d5411
+}
+.ik-sec-head .ik-tag::before{content:"";width:48px;height:1px;background:#b68235}
+.ik-sec-head .ik-h2{
+  font-size:clamp(40px,5.4vw,80px);line-height:1.04;letter-spacing:-0.01em;margin:0 0 26px;text-wrap:balance
+}
+.ik-sec-head .ik-h2 em{font-style:italic;color:#7d5411}
+.ik-sec-head .ik-lead{font-family:'Cormorant Garamond',serif;font-size:clamp(20px,1.7vw,24px);line-height:1.5;
+  color:rgba(32,31,29,0.72);margin:0;padding-left:20px;border-left:2px solid rgba(182,130,53,0.55)}
+
 /* ---------- TARJETAS DE ESPACIOS ---------- */
 .ik-card{
   display:flex;flex-direction:column;overflow:hidden;
@@ -113,6 +135,61 @@ img,video{max-width:100%}
   transform:translateY(-1px);box-shadow:0 12px 26px -10px rgba(32,31,29,0.55)
 }
 #contacto button[type=submit]:active{transform:translateY(0)}
+
+/* ---------- ESPACIOS PARA REUNIONES: tarjeta con foto a sangre ---------- */
+/* La foto ocupa toda la tarjeta; el texto va sobre un velo oscuro con desenfoque abajo */
+.ik-espacios-3 .ik-card{
+  position:relative;isolation:isolate;min-height:600px;justify-content:flex-end;
+  background:#201f1d;border:0;border-radius:24px;
+  box-shadow:0 2px 6px rgba(32,31,29,0.08),0 24px 48px -24px rgba(32,31,29,0.45)
+}
+.ik-espacios-3 .ik-card:hover{border-color:transparent;box-shadow:0 10px 18px rgba(32,31,29,0.10),0 40px 70px -28px rgba(32,31,29,0.55)}
+.ik-espacios-3 .ik-card-media{position:absolute;inset:0;z-index:-2;background:#2b2a27}
+.ik-espacios-3 .ik-card-media image-slot{width:100%;height:100%;aspect-ratio:auto;transition:transform .9s cubic-bezier(.2,.7,.2,1)}
+.ik-espacios-3 .ik-card:hover .ik-card-media image-slot{transform:scale(1.06)}
+/* Velo: desenfoque que se desvanece hacia arriba + degradado para el contraste del texto */
+.ik-espacios-3 .ik-card::after{
+  content:"";position:absolute;left:0;right:0;bottom:0;height:72%;z-index:-1;pointer-events:none;
+  -webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);
+  -webkit-mask-image:linear-gradient(to top,#000 45%,transparent);mask-image:linear-gradient(to top,#000 45%,transparent);
+  background:linear-gradient(to top,rgba(24,23,21,0.94) 0%,rgba(24,23,21,0.82) 45%,rgba(24,23,21,0) 100%)
+}
+.ik-espacios-3 .ik-card-body{flex:0 0 auto;padding:28px 26px 22px}
+/* Etiqueta como pastilla en la esquina superior */
+.ik-espacios-3 .ik-card-tag{
+  position:absolute;top:18px;left:18px;margin:0;display:inline-flex;align-items:center;gap:7px;
+  font-family:'Lora',serif;font-size:10.5px;letter-spacing:0.12em;color:#201f1d;
+  background:rgba(248,244,244,0.92);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);
+  padding:8px 14px 8px 12px;border-radius:999px;box-shadow:0 4px 14px -6px rgba(32,31,29,0.35)
+}
+.ik-espacios-3 .ik-card-tag::before{content:"";width:7px;height:7px;border-radius:50%;background:#b68235}
+.ik-espacios-3 .ik-card h4{color:#f8f4f4;font-size:clamp(24px,2vw,28px);margin:0 0 12px}
+.ik-espacios-3 .ik-card p{color:rgba(248,244,244,0.78);font-size:14.5px;line-height:1.65;margin:0 0 20px}
+/* Pie de la tarjeta: filete fino y enlace a lo ancho */
+.ik-espacios-3 .ik-card-cta{
+  align-self:stretch;display:flex;justify-content:space-between;align-items:center;
+  color:#e2c28f;border-bottom:0;border-top:1px solid rgba(248,244,244,0.16);padding:16px 0 0
+}
+.ik-espacios-3 .ik-card-cta::after{transition:transform .3s ease}
+.ik-espacios-3 .ik-card:hover .ik-card-cta,.ik-espacios-3 .ik-card-cta:hover{color:#f5ecda;border-color:rgba(248,244,244,0.28)}
+.ik-espacios-3 .ik-card:hover .ik-card-cta::after{transform:translateX(4px)}
+/* Prueba de color: 1a tarjeta con el verde agua de la marca, 3a en claro con texto oscuro */
+.ik-espacios-3 .ik-card--marca{background:#3F696D}
+.ik-espacios-3 .ik-card--marca::after{
+  background:linear-gradient(to top,rgba(52,90,94,0.96) 0%,rgba(63,105,109,0.86) 45%,rgba(79,126,130,0) 100%)
+}
+.ik-espacios-3 .ik-card--marca p{color:rgba(248,244,244,0.86)}
+.ik-espacios-3 .ik-card--marca .ik-card-cta{color:#f5ecda;border-top-color:rgba(248,244,244,0.22)}
+.ik-espacios-3 .ik-card--marca:hover .ik-card-cta{color:#fff}
+.ik-espacios-3 .ik-card--claro{background:#f8f4f4}
+.ik-espacios-3 .ik-card--claro::after{
+  background:linear-gradient(to top,rgba(248,244,244,0.97) 0%,rgba(248,244,244,0.9) 45%,rgba(248,244,244,0) 100%)
+}
+.ik-espacios-3 .ik-card--claro h4{color:#201f1d}
+.ik-espacios-3 .ik-card--claro p{color:rgba(32,31,29,0.78)}
+.ik-espacios-3 .ik-card--claro .ik-card-cta{color:#7d5411;border-top-color:rgba(32,31,29,0.14)}
+.ik-espacios-3 .ik-card--claro:hover .ik-card-cta,.ik-espacios-3 .ik-card--claro .ik-card-cta:hover{color:#b68235;border-color:rgba(32,31,29,0.24)}
+@media (max-width:640px){.ik-espacios-3 .ik-card{min-height:540px}}
 
 /* ---------- ACTIVIDADES ---------- */
 /* minmax(0,1fr): con 1fr a secas el min-content de image-slot empujaba la 4a tarjeta fuera */
@@ -344,15 +421,18 @@ img,video{max-width:100%}
 
   <!-- ESPACIOS -->
   <section id="espacios" style="padding:96px 56px;border-bottom:1px solid rgba(32,31,29,0.12)">
-    <span class="ik-tag">Espacios</span>
-    <h2 class="ik-h2">Espacios Corporativos en Hotel Ikaan Villa Spa</h2>
-    <p class="ik-lead" style="margin-bottom:48px">Diseñamos cada evento según las necesidades de tu empresa.</p>
+    <header class="ik-sec-head">
+      <img class="ik-sec-deco" data-src="assets/rama-floral-deco.svg" data-src-quieta="assets/rama-floral-deco-quieta.svg" alt="" aria-hidden="true" decoding="async">
+      <span class="ik-tag">Espacios</span>
+      <h2 class="ik-h2">Espacios Corporativos en <em>Ikaan Villa Spa</em></h2>
+      <p class="ik-lead">Diseñamos cada evento según las necesidades de tu empresa.</p>
+    </header>
     <div style="display:flex;align-items:baseline;gap:20px;margin:0 0 34px">
       <h3 class="ik-sub-h3" style="font-family:'Cormorant Garamond',serif;font-weight:600;font-size:clamp(22px,2.2vw,28px);color:#201f1d;margin:0;white-space:nowrap">Espacios para Reuniones y Eventos</h3>
       <span style="flex:1;height:1px;background:rgba(32,31,29,0.16)"></span>
     </div>
     <div class="ik-espacios-grid ik-espacios-3" style="display:grid;grid-template-columns:repeat(3,1fr);gap:28px;align-items:stretch;perspective:1200px">
-      <div class="ik-card">
+      <div class="ik-card ik-card--marca">
         <figure class="ik-card-media">
           <image-slot id="space-1" shape="rect" src="assets/comedor-junta-directiva.webp" alt="Junta directiva alrededor de la mesa del comedor, con proyección y ventanales al jardín"></image-slot>
         </figure>
@@ -374,7 +454,7 @@ img,video{max-width:100%}
         <a href="#contacto" class="ik-card-cta">Cotizar</a>
         </div>
       </div>
-      <div class="ik-card">
+      <div class="ik-card ik-card--claro">
         <figure class="ik-card-media">
           <image-slot id="space-4" shape="rect" src="assets/explanada-conferencia.webp" alt="Conferencia al aire libre con pantalla y auditorio de sillas bajo los árboles"></image-slot>
         </figure>
@@ -562,6 +642,23 @@ class Component extends DCLogic {
     if (e) e.preventDefault();
     this.setState({ menuOpen: !this.state.menuOpen });
   };
+
+  // Las ilustraciones decorativas se cargan al llegar a su seccion: la animacion del SVG
+  // arranca al cargar el archivo, asi se ve crecer en vez de terminar fuera de pantalla
+  componentDidMount() {
+    const decos = document.querySelectorAll("img[data-src]");
+    const quieto = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const cargar = (img) => { img.src = (quieto && img.dataset.srcQuieta) || img.dataset.src; img.removeAttribute("data-src"); };
+    if (!("IntersectionObserver" in window)) { decos.forEach(cargar); return; }
+    this.decoObserver = new IntersectionObserver((entradas, obs) => {
+      entradas.forEach((e) => { if (e.isIntersecting) { cargar(e.target); obs.unobserve(e.target); } });
+    }, { threshold: 0.35 });
+    decos.forEach((img) => this.decoObserver.observe(img));
+  }
+
+  componentWillUnmount() {
+    if (this.decoObserver) this.decoObserver.disconnect();
+  }
 
   handleSubmit = (e) => {
     e.preventDefault();

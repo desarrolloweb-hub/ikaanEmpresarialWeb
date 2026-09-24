@@ -136,60 +136,68 @@ img,video{max-width:100%}
 }
 #contacto button[type=submit]:active{transform:translateY(0)}
 
-/* ---------- ESPACIOS PARA REUNIONES: tarjeta con foto a sangre ---------- */
+/* ---------- TARJETAS CON FOTO A SANGRE (.ik-overlay en la rejilla) ---------- */
 /* La foto ocupa toda la tarjeta; el texto va sobre un velo oscuro con desenfoque abajo */
-.ik-espacios-3 .ik-card{
+.ik-overlay .ik-card{
   position:relative;isolation:isolate;min-height:600px;justify-content:flex-end;
   background:#201f1d;border:0;border-radius:24px;
   box-shadow:0 2px 6px rgba(32,31,29,0.08),0 24px 48px -24px rgba(32,31,29,0.45)
 }
-.ik-espacios-3 .ik-card:hover{border-color:transparent;box-shadow:0 10px 18px rgba(32,31,29,0.10),0 40px 70px -28px rgba(32,31,29,0.55)}
-.ik-espacios-3 .ik-card-media{position:absolute;inset:0;z-index:-2;background:#2b2a27}
-.ik-espacios-3 .ik-card-media image-slot{width:100%;height:100%;aspect-ratio:auto;transition:transform .9s cubic-bezier(.2,.7,.2,1)}
-.ik-espacios-3 .ik-card:hover .ik-card-media image-slot{transform:scale(1.06)}
+.ik-overlay .ik-card:hover{border-color:transparent;box-shadow:0 10px 18px rgba(32,31,29,0.10),0 40px 70px -28px rgba(32,31,29,0.55)}
+.ik-overlay .ik-card-media{position:absolute;inset:0;z-index:-2;background:#2b2a27}
+.ik-overlay .ik-card-media image-slot{width:100%;height:100%;aspect-ratio:auto;transition:transform .9s cubic-bezier(.2,.7,.2,1)}
+.ik-overlay .ik-card:hover .ik-card-media image-slot{transform:scale(1.06)}
 /* Velo: desenfoque que se desvanece hacia arriba + degradado para el contraste del texto */
-.ik-espacios-3 .ik-card::after{
+.ik-overlay .ik-card::after{
   content:"";position:absolute;left:0;right:0;bottom:0;height:72%;z-index:-1;pointer-events:none;
   -webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);
   -webkit-mask-image:linear-gradient(to top,#000 45%,transparent);mask-image:linear-gradient(to top,#000 45%,transparent);
   background:linear-gradient(to top,rgba(24,23,21,0.94) 0%,rgba(24,23,21,0.82) 45%,rgba(24,23,21,0) 100%)
 }
-.ik-espacios-3 .ik-card-body{flex:0 0 auto;padding:28px 26px 22px}
+/* Alineacion entre tarjetas: cada tarjeta ocupa 4 filas de la rejilla (foto, titulo, texto, enlace)
+   y las comparte con subgrid, asi titulos, descripciones y "Cotizar" quedan a la misma altura
+   aunque un titulo ocupe dos lineas */
+.ik-overlay{grid-auto-rows:minmax(300px,1fr) auto auto auto;row-gap:0!important}
+.ik-overlay .ik-card{display:grid;grid-row:span 4;grid-template-rows:subgrid;row-gap:0;min-height:0;margin-bottom:28px}
+.ik-overlay .ik-card-body{display:contents}
+.ik-overlay .ik-card h4{grid-row:2;align-self:start;padding:0 26px}
+.ik-overlay .ik-card p{grid-row:3;padding:0 26px}
+.ik-overlay .ik-card-cta{grid-row:4;margin:0 26px 22px}
 /* Etiqueta como pastilla en la esquina superior */
-.ik-espacios-3 .ik-card-tag{
+.ik-overlay .ik-card-tag{
   position:absolute;top:18px;left:18px;margin:0;display:inline-flex;align-items:center;gap:7px;
   font-family:'Lora',serif;font-size:10.5px;letter-spacing:0.12em;color:#201f1d;
   background:rgba(248,244,244,0.92);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);
   padding:8px 14px 8px 12px;border-radius:999px;box-shadow:0 4px 14px -6px rgba(32,31,29,0.35)
 }
-.ik-espacios-3 .ik-card-tag::before{content:"";width:7px;height:7px;border-radius:50%;background:#b68235}
-.ik-espacios-3 .ik-card h4{color:#f8f4f4;font-size:clamp(24px,2vw,28px);margin:0 0 12px}
-.ik-espacios-3 .ik-card p{color:rgba(248,244,244,0.78);font-size:14.5px;line-height:1.65;margin:0 0 20px}
+.ik-overlay .ik-card-tag::before{content:"";width:7px;height:7px;border-radius:50%;background:#b68235}
+.ik-overlay .ik-card h4{color:#f8f4f4;font-size:clamp(24px,2vw,28px);margin:0 0 12px}
+.ik-overlay .ik-card p{color:rgba(248,244,244,0.78);font-size:14.5px;line-height:1.65;margin:0 0 20px}
 /* Pie de la tarjeta: filete fino y enlace a lo ancho */
-.ik-espacios-3 .ik-card-cta{
+.ik-overlay .ik-card-cta{
   align-self:stretch;display:flex;justify-content:space-between;align-items:center;
   color:#e2c28f;border-bottom:0;border-top:1px solid rgba(248,244,244,0.16);padding:16px 0 0
 }
-.ik-espacios-3 .ik-card-cta::after{transition:transform .3s ease}
-.ik-espacios-3 .ik-card:hover .ik-card-cta,.ik-espacios-3 .ik-card-cta:hover{color:#f5ecda;border-color:rgba(248,244,244,0.28)}
-.ik-espacios-3 .ik-card:hover .ik-card-cta::after{transform:translateX(4px)}
-/* Prueba de color: 1a tarjeta con el verde agua de la marca, 3a en claro con texto oscuro */
-.ik-espacios-3 .ik-card--marca{background:#3F696D}
-.ik-espacios-3 .ik-card--marca::after{
+.ik-overlay .ik-card-cta::after{transition:transform .3s ease}
+.ik-overlay .ik-card:hover .ik-card-cta,.ik-overlay .ik-card-cta:hover{color:#f5ecda;border-color:rgba(248,244,244,0.28)}
+.ik-overlay .ik-card:hover .ik-card-cta::after{transform:translateX(4px)}
+/* Variantes de degradado: --marca (verde agua) y --claro (blanco con texto oscuro) */
+.ik-overlay .ik-card--marca{background:#3F696D}
+.ik-overlay .ik-card--marca::after{
   background:linear-gradient(to top,rgba(52,90,94,0.96) 0%,rgba(63,105,109,0.86) 45%,rgba(79,126,130,0) 100%)
 }
-.ik-espacios-3 .ik-card--marca p{color:rgba(248,244,244,0.86)}
-.ik-espacios-3 .ik-card--marca .ik-card-cta{color:#f5ecda;border-top-color:rgba(248,244,244,0.22)}
-.ik-espacios-3 .ik-card--marca:hover .ik-card-cta{color:#fff}
-.ik-espacios-3 .ik-card--claro{background:#f8f4f4}
-.ik-espacios-3 .ik-card--claro::after{
+.ik-overlay .ik-card--marca p{color:rgba(248,244,244,0.86)}
+.ik-overlay .ik-card--marca .ik-card-cta{color:#f5ecda;border-top-color:rgba(248,244,244,0.22)}
+.ik-overlay .ik-card--marca:hover .ik-card-cta{color:#fff}
+.ik-overlay .ik-card--claro{background:#f8f4f4}
+.ik-overlay .ik-card--claro::after{
   background:linear-gradient(to top,rgba(248,244,244,0.97) 0%,rgba(248,244,244,0.9) 45%,rgba(248,244,244,0) 100%)
 }
-.ik-espacios-3 .ik-card--claro h4{color:#201f1d}
-.ik-espacios-3 .ik-card--claro p{color:rgba(32,31,29,0.78)}
-.ik-espacios-3 .ik-card--claro .ik-card-cta{color:#7d5411;border-top-color:rgba(32,31,29,0.14)}
-.ik-espacios-3 .ik-card--claro:hover .ik-card-cta,.ik-espacios-3 .ik-card--claro .ik-card-cta:hover{color:#b68235;border-color:rgba(32,31,29,0.24)}
-@media (max-width:640px){.ik-espacios-3 .ik-card{min-height:540px}}
+.ik-overlay .ik-card--claro h4{color:#201f1d}
+.ik-overlay .ik-card--claro p{color:rgba(32,31,29,0.78)}
+.ik-overlay .ik-card--claro .ik-card-cta{color:#7d5411;border-top-color:rgba(32,31,29,0.14)}
+.ik-overlay .ik-card--claro:hover .ik-card-cta,.ik-overlay .ik-card--claro .ik-card-cta:hover{color:#b68235;border-color:rgba(32,31,29,0.24)}
+@media (max-width:640px){.ik-overlay{grid-auto-rows:minmax(260px,1fr) auto auto auto}}
 
 /* ---------- ACTIVIDADES ---------- */
 /* minmax(0,1fr): con 1fr a secas el min-content de image-slot empujaba la 4a tarjeta fuera */
@@ -431,8 +439,8 @@ img,video{max-width:100%}
       <h3 class="ik-sub-h3" style="font-family:'Cormorant Garamond',serif;font-weight:600;font-size:clamp(22px,2.2vw,28px);color:#201f1d;margin:0;white-space:nowrap">Espacios para Reuniones y Eventos</h3>
       <span style="flex:1;height:1px;background:rgba(32,31,29,0.16)"></span>
     </div>
-    <div class="ik-espacios-grid ik-espacios-3" style="display:grid;grid-template-columns:repeat(3,1fr);gap:28px;align-items:stretch;perspective:1200px">
-      <div class="ik-card ik-card--marca">
+    <div class="ik-espacios-grid ik-espacios-3 ik-overlay" style="display:grid;grid-template-columns:repeat(3,1fr);gap:28px;align-items:stretch;perspective:1200px">
+      <div class="ik-card ik-card--claro">
         <figure class="ik-card-media">
           <image-slot id="space-1" shape="rect" src="assets/comedor-junta-directiva.webp" alt="Junta directiva alrededor de la mesa del comedor, con proyección y ventanales al jardín"></image-slot>
         </figure>
@@ -443,7 +451,7 @@ img,video{max-width:100%}
         <a href="#contacto" class="ik-card-cta">Cotizar</a>
         </div>
       </div>
-      <div class="ik-card">
+      <div class="ik-card ik-card--claro">
         <figure class="ik-card-media">
           <image-slot id="space-3" shape="rect" src="assets/terraza-sesion-grupo.webp" alt="Grupo sentado en círculo durante una sesión en la terraza, bajo la arboleda"></image-slot>
         </figure>
@@ -477,8 +485,8 @@ img,video{max-width:100%}
       <span style="flex:1;height:1px;background:rgba(32,31,29,0.16)"></span>
     </div>
     <p class="ik-lead" style="max-width:56ch;margin:0 0 34px">Refuerza a tu equipo con actividades únicas en contacto con la naturaleza. Un espacio ideal para mejorar la comunicación, confianza, creatividad y conexión entre colaboradores.</p>
-    <div class="ik-espacios-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;align-items:stretch">
-      <div class="ik-card">
+    <div class="ik-espacios-grid ik-overlay" style="display:grid;grid-template-columns:repeat(3,1fr);gap:28px;align-items:stretch">
+      <div class="ik-card ik-card--marca">
         <figure class="ik-card-media">
           <image-slot id="space-5" shape="rect" src="assets/laberinto-espiral-aereo.webp" alt="Vista aérea del laberinto espiral de piedra rodeado de arboleda"></image-slot>
         </figure>
@@ -489,7 +497,7 @@ img,video{max-width:100%}
         <a href="#contacto" class="ik-card-cta">Cotizar</a>
         </div>
       </div>
-      <div class="ik-card">
+      <div class="ik-card ik-card--marca">
         <figure class="ik-card-media">
           <image-slot id="space-6" shape="rect" src="assets/kayak-arroyo.webp" alt="Dos personas remando en kayak por el arroyo entre la arboleda"></image-slot>
         </figure>
@@ -500,7 +508,7 @@ img,video{max-width:100%}
         <a href="#contacto" class="ik-card-cta">Cotizar</a>
         </div>
       </div>
-      <div class="ik-card">
+      <div class="ik-card ik-card--marca">
         <figure class="ik-card-media">
           <image-slot id="space-7" shape="rect" src="assets/teambuilding-jardin.webp" alt="Equipo de trabajo en dinámica de integración al aire libre en los jardines de la Hacienda"></image-slot>
         </figure>

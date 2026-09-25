@@ -112,7 +112,7 @@ En orden de aparición:
 | Color | Uso |
 |---|---|
 | `#b68235` / `#7d5411` | Dorado — acentos, focus, enlaces |
-| `#8DB4B7` / `#4F7E82` | Verde agua — footer, botones |
+| `#97b5bb` / `#4F7E82` | Verde agua — footer, botones |
 | `#201f1d` | Texto principal |
 | `#f3f2f2` / `#eae7e7` | Fondos claros |
 

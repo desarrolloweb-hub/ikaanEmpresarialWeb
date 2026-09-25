@@ -19,7 +19,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Lora:wght@400;600&display=swap">
-<link rel="preload" as="image" href="assets/salon-conferencias-montaje.webp" type="image/webp">
+<link rel="preload" as="image" href="assets/salon-candiles-montaje.webp" type="image/webp">
 <title>Eventos Empresariales | Hotel Ikaan Villa Spa</title>
 <style>
 html{scroll-behavior:smooth}
@@ -229,7 +229,7 @@ img,video{max-width:100%}
    hacia el #f3f2f2 de la pagina. El texto del hero sube para quedar sobre la parte oscura */
 /* El espacio extra del desvanecido escala con la altura de la pantalla: en laptops bajas
    (~650px utiles) un valor fijo empujaba el titulo debajo del menu */
-.ik-hero-copy{padding-bottom:calc(min(72px,8vh) + min(150px,16vh))!important;max-width:980px!important}
+.ik-hero-copy{padding-bottom:calc(min(72px,8vh) + min(70px,8vh))!important;max-width:980px!important}
 /* El titulo escala con el ancho Y el alto; mas ancho para que quepa en 2-3 lineas */
 .ik-hero-copy h1{font-size:clamp(38px,min(5.4vw,9vh),74px)!important}
 /* Nunca menos que menu + texto: si la pantalla es muy baja, el hero crece en vez de encimarse */
@@ -237,11 +237,12 @@ img,video{max-width:100%}
    si la pantalla es muy baja, el hero crece en vez de meter el titulo debajo del menu */
 .ik-hero{min-height:max(560px,88vh)!important;height:auto!important;display:flex;flex-direction:column;justify-content:flex-end;padding-top:130px!important;padding-left:0!important;padding-right:0!important}
 .ik-hero-copy{position:relative!important;z-index:1}
-.ik-hero::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:min(260px,28vh);pointer-events:none;
+.ik-hero::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:min(140px,15vh);pointer-events:none;
   background:linear-gradient(to bottom,
     rgba(243,242,242,0) 0%,rgba(243,242,242,0.08) 18%,rgba(243,242,242,0.28) 36%,
     rgba(243,242,242,0.55) 55%,rgba(243,242,242,0.82) 75%,#f3f2f2 100%)}
-#contacto{padding-top:40px!important}
+/* El hero mide 88vh: el resto de la pantalla mas un margen, para que el formulario no asome al abrir la pagina */
+#contacto{padding-top:calc(12vh + 48px)!important}
 
 /* ---------- RENDIMIENTO EN CELULARES ---------- */
 /* backdrop-filter obliga a la GPU a re-desenfocar la foto en cada cuadro del scroll; con 6 tarjetas
@@ -293,8 +294,9 @@ img,video{max-width:100%}
   .ik-grid-2c>div{border-left:0!important;padding-left:0!important;padding-right:0!important}
   /* Hero: mismo montaje, mas corto y con el texto pegado al borde de 20px */
   .ik-hero{min-height:max(480px,72vh)!important;padding-top:110px!important;padding-bottom:0!important}
-  .ik-hero-copy{padding:0 20px calc(40px + 110px)!important}
-  .ik-hero::after{height:180px!important}
+  .ik-hero-copy{padding:0 20px calc(40px + 60px)!important}
+  .ik-hero::after{height:100px!important}
+  #contacto{padding-top:40px!important}
   .ik-hero-copy h1{font-size:34px!important}
   .ik-hero-copy a{flex:1 1 100%;text-align:center}
   .ik-lead,.ik-just{text-align:left!important}
@@ -349,7 +351,7 @@ img,video{max-width:100%}
   <!-- HERO -->
   <section class="ik-hero" style="position:relative;height:88vh;min-height:620px;overflow:hidden">
     <div class="ik-hero-media" style="position:absolute;inset:0">
-      <image-slot id="hero-bg" shape="rect" src="assets/salon-conferencias-montaje.webp" alt="Salón de la Hacienda montado para conferencia, con sillas en filas, pantalla de proyección y candiles de hierro" style="width:100%;height:100%"></image-slot>
+      <image-slot id="hero-bg" shape="rect" src="assets/salon-candiles-montaje.webp" alt="Salón de la Hacienda montado para conferencia, con sillas en filas, pantalla de proyección y candiles de hierro" style="width:100%;height:100%"></image-slot>
     </div>
     <div style="position:absolute;inset:0;background:linear-gradient(180deg, rgba(32,31,29,0.32) 0%, rgba(32,31,29,0.42) 45%, rgba(32,31,29,0.72) 100%);pointer-events:none"></div>
     <div class="ik-hero-copy" style="position:absolute;left:0;right:0;bottom:0;padding:0 56px 72px;max-width:760px;color:#f8f4f4">

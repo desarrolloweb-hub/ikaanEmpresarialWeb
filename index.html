@@ -146,6 +146,12 @@ img,video{max-width:100%}
 /* ---------- FORMULARIO DE CONTACTO ---------- */
 /* Dos paneles: foto con los datos de contacto a la izquierda, formulario blanco a la derecha.
    Campos en caja, etiquetas discretas y un solo boton oscuro: sobrio y empresarial */
+/* Fondo de la seccion: curvas de nivel en trazo fino verde agua (guino a la sierra de Montemorelos).
+   Asoman por los lados de la tarjeta; se desvanecen arriba (degradado del hero) y abajo (para no cortarse en seco contra el borde) */
+#contacto{position:relative;isolation:isolate;overflow:hidden}
+#contacto::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;opacity:.2;
+  background:url("assets/contacto-topografia.svg?v=2") center/cover no-repeat;
+  -webkit-mask-image:linear-gradient(to bottom,transparent 0%,#000 30%,#000 62%,transparent 94%);mask-image:linear-gradient(to bottom,transparent 0%,#000 30%,#000 62%,transparent 94%)}
 .ik-cf{display:grid;grid-template-columns:minmax(0,0.92fr) minmax(0,1fr);max-width:1180px;margin:0 auto;
   background:#fff;border-radius:24px;overflow:hidden;
   box-shadow:0 1px 2px rgba(32,31,29,0.06),0 24px 60px -28px rgba(32,31,29,0.30)}
@@ -415,7 +421,7 @@ img,video{max-width:100%}
   </section>
 
   <!-- CONTACTO -->
-  <section id="contacto" style="padding:96px 56px;border-bottom:1px solid rgba(32,31,29,0.12)">
+  <section id="contacto" style="padding:96px 56px">
     <div class="ik-cf">
       <!-- Panel de foto: marca arriba, datos de contacto abajo sobre la foto -->
       <div class="ik-cf-media">

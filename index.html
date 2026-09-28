@@ -175,6 +175,12 @@ img,video{max-width:100%}
 @media (prefers-reduced-motion:reduce){.ik-logos-grupo{animation:none}.ik-logos-pista{flex-wrap:wrap;justify-content:center}.ik-logos-grupo[aria-hidden]{display:none}}
 @media (hover:none){.ik-logos-grupo img{filter:none;opacity:.9}}
 
+/* Yoga y Kayaks: las personas quedaban bajo el velo. La foto (recorte panoramico) ocupa solo la franja
+   de arriba y se funde con el verde de la tarjeta, asi la actividad se ve completa */
+.ik-overlay .ik-card-media:has(#act-3),.ik-overlay .ik-card-media:has(#act-4){background:#3F696D}
+.ik-overlay .ik-card-media #act-3,.ik-overlay .ik-card-media #act-4{height:64%;
+  -webkit-mask-image:linear-gradient(to bottom,#000 70%,transparent);mask-image:linear-gradient(to bottom,#000 70%,transparent)}
+
 /* ---------- ETIQUETAS DE SECCION ---------- */
 .ik-tag{
   display:inline-block;font-family:'Cormorant Garamond',serif;font-size:13px;
@@ -771,7 +777,7 @@ img,video{max-width:100%}
       </div>
       <div class="ik-card ik-card--claro">
         <figure class="ik-card-media">
-          <image-slot id="space-10" shape="rect" data-src="assets/hacienda-terraza-noche.webp" alt="Área de la hacienda iluminada, junto a la zona de piscina"></image-slot>
+          <image-slot id="space-10" shape="rect" data-src="assets/piscina-hacienda.webp" alt="Alberca de la hacienda al atardecer, con el edificio y la arboleda reflejados en el agua"></image-slot>
         </figure>
         <div class="ik-card-body">
         <span class="ik-card-tag">Descanso</span>
@@ -831,7 +837,7 @@ img,video{max-width:100%}
       </div>
       <div class="ik-card ik-card--marca">
         <figure class="ik-card-media">
-          <image-slot id="act-3" shape="rect" data-src="assets/terraza-sesion-grupo.webp" alt="Grupo sentado en círculo durante una sesión en la terraza, bajo la arboleda"></image-slot>
+          <image-slot id="act-3" shape="rect" data-src="assets/yoga-jardin-panoramica.webp" alt="Cuatro personas meditando en tapetes de yoga sobre el pasto, bajo la arboleda"></image-slot>
         </figure>
         <div class="ik-card-body">
         <span class="ik-card-tag">Bienestar</span>
@@ -842,7 +848,7 @@ img,video{max-width:100%}
       </div>
       <div class="ik-card ik-card--marca">
         <figure class="ik-card-media">
-          <image-slot id="act-4" shape="rect" data-src="assets/kayak-arroyo.webp" alt="Dos personas remando en kayak por el arroyo entre la arboleda"></image-slot>
+          <image-slot id="act-4" shape="rect" data-src="assets/kayak-arroyo-panoramica.webp" alt="Pareja remando en kayak por el arroyo entre sabinos, con el bosque reflejado en el agua"></image-slot>
         </figure>
         <div class="ik-card-body">
         <span class="ik-card-tag">Aventura</span>
@@ -864,7 +870,7 @@ img,video{max-width:100%}
       </div>
       <div class="ik-card ik-card--marca">
         <figure class="ik-card-media">
-          <image-slot id="act-6" shape="rect" data-src="assets/hacienda-terraza-noche.webp" alt="Área de la hacienda iluminada, junto a la zona de piscina"></image-slot>
+          <image-slot id="act-6" shape="rect" data-src="assets/piscina-hacienda-vertical.webp" alt="Alberca de la hacienda al atardecer, con el edificio y la arboleda reflejados en el agua"></image-slot>
         </figure>
         <div class="ik-card-body">
         <span class="ik-card-tag">Relajación</span>

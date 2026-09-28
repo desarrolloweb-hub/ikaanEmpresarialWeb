@@ -40,8 +40,8 @@ img,video{max-width:100%}
 .ik-loto--grande{width:min(42vw,560px);aspect-ratio:1;left:-10%;top:-6%;opacity:.13;transform:rotate(-8deg)}
 .ik-loto--chica{width:clamp(90px,9vw,140px);aspect-ratio:1;right:3%;top:22px;opacity:.55}
 /* Espacios: lavado verde agua suave arriba a la derecha, detras del emblema */
-#espacios{position:relative;isolation:isolate;overflow:hidden}
-#espacios::before{content:"";position:absolute;inset:0;z-index:-2;pointer-events:none;
+#espacios,#integracion{position:relative;isolation:isolate;overflow:hidden}
+#espacios::before,#integracion::before{content:"";position:absolute;inset:0;z-index:-2;pointer-events:none;
   background:radial-gradient(ellipse 60% 40% at 100% 12%,rgba(151,181,187,0.22) 0%,rgba(151,181,187,0.07) 45%,transparent 75%);
   -webkit-mask-image:linear-gradient(to bottom,transparent 0,#000 160px);mask-image:linear-gradient(to bottom,transparent 0,#000 160px)}
 @media (max-width:1024px){.ik-loto--chica{width:120px;right:6%;top:120px}}
@@ -298,45 +298,38 @@ img,video{max-width:100%}
 .ik-overlay .ik-card--claro .ik-card-cta{color:#7d5411;border-top-color:rgba(32,31,29,0.14)}
 .ik-overlay .ik-card--claro:hover .ik-card-cta,.ik-overlay .ik-card--claro .ik-card-cta:hover{color:#b68235;border-color:rgba(32,31,29,0.24)}
 /* ---------- GALERIA: ESPACIOS PARA REUNIONES Y EVENTOS ---------- */
-/* Foto a sangre y velo claro color crema abajo (el estilo original de esta seccion)
-   con titulo, descripcion y "Cotizar" siempre visibles. Compactas, 5 por fila */
-.ik-galeria{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));column-gap:16px;row-gap:0;grid-auto-rows:minmax(190px,1fr) auto auto auto}
+/* Foto arriba que se desvanece en el crema; titulo, descripcion y "Cotizar" siempre sobre fondo claro
+   (el titulo ya no pisa la foto). 3 por fila en laptops para que los textos no se estiren y no queden
+   huecos; 6 en una fila solo en pantallas muy anchas */
+.ik-galeria{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));column-gap:20px;row-gap:0;grid-auto-rows:auto auto auto auto}
 /* Cada tarjeta ocupa 4 filas compartidas (foto, titulo, texto, enlace): titulos y "Cotizar" alineados entre tarjetas */
-.ik-galeria .ik-card{position:relative;isolation:isolate;display:grid;grid-row:span 4;grid-template-rows:subgrid;grid-template-columns:minmax(0,1fr);row-gap:0;margin-bottom:16px;
-  background:#f8f4f4;border:0;border-radius:16px;box-shadow:0 2px 6px rgba(32,31,29,0.08),0 20px 40px -24px rgba(32,31,29,0.5)}
+.ik-galeria .ik-card{position:relative;isolation:isolate;display:grid;grid-row:span 4;grid-template-rows:subgrid;grid-template-columns:minmax(0,1fr);row-gap:0;margin-bottom:20px;
+  overflow:hidden;background:#f8f4f4;border:0;border-radius:16px;box-shadow:0 2px 6px rgba(32,31,29,0.08),0 20px 40px -24px rgba(32,31,29,0.5)}
 .ik-galeria .ik-card:hover{transform:translateY(-4px);border-color:transparent;box-shadow:0 8px 14px rgba(32,31,29,0.10),0 30px 50px -24px rgba(32,31,29,0.55)}
-.ik-galeria .ik-card-media{position:absolute;inset:0;z-index:-2;background:#e4ded7}
+.ik-galeria .ik-card-media{grid-row:1;position:relative;margin:0;background:#e4ded7;aspect-ratio:16/10;overflow:hidden;
+  -webkit-mask-image:linear-gradient(to bottom,#000 72%,transparent);mask-image:linear-gradient(to bottom,#000 72%,transparent)}
 .ik-galeria .ik-card-media image-slot{width:100%;height:100%;aspect-ratio:auto;transition:transform .9s cubic-bezier(.2,.7,.2,1)}
-.ik-galeria .ik-card:hover .ik-card-media image-slot{transform:scale(1.06)}
-.ik-galeria .ik-card::after{content:"";position:absolute;left:0;right:0;bottom:0;height:78%;z-index:-1;pointer-events:none;
-  -webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);
-  -webkit-mask-image:linear-gradient(to top,#000 50%,transparent);mask-image:linear-gradient(to top,#000 50%,transparent);
-  background:linear-gradient(to top,rgba(248,244,244,0.97) 0%,rgba(248,244,244,0.9) 50%,rgba(248,244,244,0) 100%)}
+.ik-galeria .ik-card:hover .ik-card-media image-slot{transform:scale(1.05)}
 .ik-galeria .ik-card-body{display:contents}
-.ik-galeria .ik-card h4{grid-row:2;align-self:end;padding:0 18px}
-.ik-galeria .ik-card p{grid-row:3;padding:0 18px}
-.ik-galeria .ik-card-cta{grid-row:4;margin:0 18px 16px}
-.ik-galeria .ik-card-tag{position:absolute;top:12px;left:12px;margin:0;display:inline-flex;align-items:center;gap:6px;
+.ik-galeria .ik-card h4{grid-row:2;align-self:end;padding:0 20px;margin:-10px 0 10px}
+.ik-galeria .ik-card p{grid-row:3;padding:0 20px}
+.ik-galeria .ik-card-cta{grid-row:4;margin:0 20px 18px}
+.ik-galeria .ik-card-tag{position:absolute;top:12px;left:12px;margin:0;display:inline-flex;align-items:center;gap:6px;z-index:1;
   font-family:'Lora',serif;font-size:9.5px;letter-spacing:0.12em;color:#201f1d;background:rgba(248,244,244,0.94);
   padding:6px 11px 6px 9px;border-radius:999px;box-shadow:0 4px 12px -6px rgba(32,31,29,0.35)}
 .ik-galeria .ik-card-tag::before{content:"";width:6px;height:6px;border-radius:50%;background:#b68235}
-.ik-galeria .ik-card h4{font-size:clamp(20px,1.6vw,24px);line-height:1.12;color:#201f1d;margin:0 0 10px;text-shadow:0 1px 14px rgba(248,244,244,0.9)}
+.ik-galeria .ik-card h4{font-size:clamp(21px,1.7vw,26px);line-height:1.12;color:#201f1d}
 .ik-galeria .ik-card h4::after{content:"";display:block;width:26px;height:2px;background:#b68235;margin-top:9px}
-.ik-galeria .ik-card p{flex:none;font-size:13px;line-height:1.55;color:rgba(32,31,29,0.78);margin:0 0 14px}
-.ik-galeria .ik-card-cta{align-self:stretch;display:flex;justify-content:space-between;align-items:center;font-size:16px;
+.ik-galeria .ik-card p{flex:none;font-size:14px;line-height:1.6;color:rgba(32,31,29,0.78);margin:0 0 16px}
+.ik-galeria .ik-card-cta{align-self:end;display:flex;justify-content:space-between;align-items:center;font-size:16px;
   color:#7d5411;border-bottom:0;border-top:1px solid rgba(32,31,29,0.14);padding:12px 0 0}
 .ik-galeria .ik-card:hover .ik-card-cta,.ik-galeria .ik-card-cta:hover{color:#b68235;border-color:rgba(32,31,29,0.24)}
-/* Explanada y Laberinto: la carpa es ancha / el circulo quedaba bajo el velo; la foto ocupa solo la parte alta (sobre el velo)
-   para que la carpa se vea completa en vez de recortada */
-.ik-galeria .ik-card-media:has(#space-4),.ik-galeria .ik-card-media:has(#space-8),.ik-galeria .ik-card-media:has(#space-3){background:#f8f4f4}
-.ik-galeria .ik-card-media #space-4,.ik-galeria .ik-card-media #space-8,.ik-galeria .ik-card-media #space-3{height:62%}
 /* Espacio aun sin foto (Jardin Zen): queda el tono crema neutro */
 .ik-galeria .ik-card-media image-slot:not([src]):not([data-src]){opacity:0}
-@media (max-width:1280px){.ik-galeria{grid-template-columns:repeat(3,minmax(0,1fr))}}
-@media (max-width:760px){.ik-galeria{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}}
-@media (max-width:520px){.ik-galeria{grid-template-columns:1fr;grid-auto-rows:minmax(200px,auto) auto auto auto}}
-@media (hover:none),(prefers-reduced-transparency:reduce){
-  .ik-galeria .ik-card::after{-webkit-backdrop-filter:none;backdrop-filter:none;-webkit-mask-image:none;mask-image:none}
+@media (min-width:1700px){.ik-galeria{grid-template-columns:repeat(6,minmax(0,1fr));column-gap:16px}.ik-galeria .ik-card-media{aspect-ratio:4/3}}
+@media (max-width:900px){.ik-galeria{grid-template-columns:repeat(2,minmax(0,1fr));column-gap:14px}}
+@media (max-width:560px){.ik-galeria{grid-template-columns:1fr}}
+@media (hover:none){
   .ik-galeria .ik-card:hover{transform:none}
   .ik-galeria .ik-card:hover .ik-card-media image-slot{transform:none}
 }
@@ -714,6 +707,21 @@ img,video{max-width:100%}
       <span class="ik-tag">Actividades</span>
       <h2 class="ik-h2">Actividades de Integración y Bienestar en <em>Ikaan</em></h2>
       <p class="ik-lead">Refuerza a tu equipo con actividades únicas en contacto con la naturaleza. Un espacio ideal para mejorar la comunicación, confianza, creatividad y conexión entre colaboradores.</p>
+      <div class="ik-lineas" aria-hidden="true">
+        <svg viewBox="0 0 800 600" preserveAspectRatio="none">
+          <path d="M0,140 C200,190 280,330 440,350 S680,420 820,560" stroke-opacity=".5"/>
+          <path d="M20,60 C220,120 330,240 480,265 S700,300 820,440" stroke-opacity=".35"/>
+          <path d="M-20,250 C170,280 250,420 400,450 S640,510 800,620" stroke-opacity=".3"/>
+          <path d="M160,-10 C300,90 420,110 560,180 S720,300 820,280" stroke-opacity=".25"/>
+          <path d="M300,620 C360,500 480,470 580,380 S720,160 820,120" stroke-opacity=".3"/>
+          <circle cx="440" cy="350" r="2.5"/><circle cx="600" cy="300" r="2"/><circle cx="480" cy="265" r="1.6"/>
+          <circle cx="560" cy="180" r="1.6"/><circle cx="700" cy="480" r="2"/><circle cx="400" cy="450" r="1.6"/>
+        </svg>
+        <span class="ik-flor" style="left:69%;top:52%;width:clamp(70px,7vw,110px);--o:.8;animation-delay:1.6s"></span>
+        <span class="ik-flor" style="left:50%;top:40%;width:clamp(38px,3.6vw,56px);--o:.55;animation-delay:2s"></span>
+        <span class="ik-flor" style="left:86%;top:26%;width:clamp(30px,2.8vw,44px);--o:.45;animation-delay:2.3s"></span>
+        <span class="ik-flor" style="left:82%;top:82%;width:clamp(24px,2.2vw,34px);--o:.4;animation-delay:2.6s"></span>
+      </div>
     </header>
     <div class="ik-espacios-grid ik-overlay" style="display:grid;grid-template-columns:repeat(3,1fr);gap:28px;align-items:stretch">
       <div class="ik-card ik-card--marca">

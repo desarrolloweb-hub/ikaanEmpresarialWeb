@@ -326,6 +326,10 @@ img,video{max-width:100%}
 .ik-galeria .ik-card-cta{align-self:stretch;display:flex;justify-content:space-between;align-items:center;font-size:16px;
   color:#7d5411;border-bottom:0;border-top:1px solid rgba(32,31,29,0.14);padding:12px 0 0}
 .ik-galeria .ik-card:hover .ik-card-cta,.ik-galeria .ik-card-cta:hover{color:#b68235;border-color:rgba(32,31,29,0.24)}
+/* Explanada: la carpa es ancha y la tarjeta angosta; la foto ocupa solo la parte alta (sobre el velo)
+   para que la carpa se vea completa en vez de recortada */
+.ik-galeria .ik-card-media:has(#space-4){background:#f8f4f4}
+.ik-galeria .ik-card-media #space-4{height:62%}
 /* Espacio aun sin foto (Jardin Zen): queda el tono crema neutro */
 .ik-galeria .ik-card-media image-slot:not([src]):not([data-src]){opacity:0}
 @media (max-width:1180px){.ik-galeria{grid-template-columns:repeat(3,minmax(0,1fr))}}
@@ -636,7 +640,7 @@ img,video{max-width:100%}
     <div class="ik-galeria">
       <div class="ik-card ik-card--claro">
         <figure class="ik-card-media">
-          <image-slot id="space-4" shape="rect" data-src="assets/explanada-carpa-aerea.webp?v=2" alt="Vista aérea de la explanada techada con carpa blanca rodeada de arboleda"></image-slot>
+          <image-slot id="space-4" shape="rect" data-src="assets/explanada-carpa-aerea.webp?v=4" alt="Vista aérea de la explanada techada con carpa blanca rodeada de arboleda"></image-slot>
         </figure>
         <div class="ik-card-body">
         <span class="ik-card-tag">Hasta 500 personas</span>

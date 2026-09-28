@@ -95,6 +95,42 @@ img,video{max-width:100%}
   .ik-intro-stat+.ik-intro-stat{border-left:0;border-top:1px solid rgba(151,181,187,0.55)}
 }
 
+/* ---------- EVENTOS A LA MEDIDA ---------- */
+/* Intro fija a la izquierda mientras se recorren los componentes; componentes en tarjetas numeradas 2x3,
+   la sexta celda es la llamada a la accion en verde agua */
+.ik-medida{position:relative;isolation:isolate;overflow:hidden}
+.ik-medida::before{content:"";position:absolute;inset:0;z-index:-2;pointer-events:none;
+  background:radial-gradient(ellipse 55% 60% at 0% 100%,rgba(151,181,187,0.22) 0%,rgba(151,181,187,0.06) 50%,transparent 75%)}
+.ik-loto--medida{width:min(34vw,440px);aspect-ratio:1;left:-8%;bottom:-10%;opacity:.12;transform:rotate(-10deg)}
+.ik-medida-grid{display:grid;grid-template-columns:minmax(0,36%) minmax(0,1fr);gap:clamp(40px,6vw,96px);align-items:start}
+.ik-medida-intro{position:sticky;top:120px}
+.ik-medida-intro .ik-tag{color:#3F696D;background:rgba(151,181,187,0.28)}
+.ik-medida-intro .ik-h2{font-size:clamp(36px,3.8vw,54px);line-height:1.08;margin:0 0 26px;max-width:14ch;text-wrap:balance}
+.ik-medida-intro .ik-h2 em{font-style:italic;color:#4F7E82}
+.ik-medida-intro .ik-lead{margin:0;font-size:17px;padding-left:18px;border-left:2px solid #97b5bb}
+.ik-medida-label{display:block;font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:#4F7E82;font-weight:600;margin-bottom:18px}
+.ik-comp-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.ik-comp{position:relative;display:flex;flex-direction:column;padding:26px 26px 28px;background:#f8f4f4;border:1px solid rgba(151,181,187,0.4);
+  border-radius:14px;box-shadow:0 2px 4px rgba(32,31,29,0.03),0 14px 28px -22px rgba(32,31,29,0.35);
+  transition:transform .35s cubic-bezier(.2,.7,.3,1),box-shadow .35s ease,border-color .3s ease}
+.ik-comp::before{content:"";position:absolute;left:26px;top:0;width:36px;height:2px;background:#97b5bb;transition:width .35s ease}
+.ik-comp:hover{transform:translateY(-4px);border-color:#97b5bb;box-shadow:0 8px 14px rgba(32,31,29,0.05),0 26px 40px -24px rgba(32,31,29,0.4)}
+.ik-comp:hover::before{width:72px}
+.ik-comp-n{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:15px;color:#4F7E82;margin-bottom:14px}
+.ik-comp h3{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:23px;line-height:1.2;margin:0 0 10px;color:#201f1d}
+.ik-comp p{font-size:14.5px;line-height:1.7;color:rgba(32,31,29,0.72);margin:0}
+.ik-comp--cta{background:#4F7E82;border-color:#4F7E82;text-decoration:none;justify-content:space-between}
+.ik-comp--cta::before{background:#f5ecda}
+.ik-comp--cta .ik-comp-n{color:rgba(248,244,244,0.8)}
+.ik-comp--cta h3{color:#f8f4f4;font-size:26px;max-width:12ch}
+.ik-comp-arrow{align-self:flex-end;font-size:22px;color:#f5ecda;transition:transform .3s ease}
+.ik-comp--cta:hover{background:#3F696D;border-color:#3F696D}
+.ik-comp--cta:hover .ik-comp-arrow{transform:translateX(6px)}
+@media (max-width:1024px){.ik-medida-grid{grid-template-columns:1fr}.ik-medida-intro{position:static}}
+@media (max-width:640px){.ik-comp-grid{grid-template-columns:1fr}}
+@media (hover:none){.ik-comp:hover{transform:none}}
+@media (prefers-reduced-motion:reduce){.ik-comp,.ik-comp::before,.ik-comp-arrow{transition:none}}
+
 /* ---------- ETIQUETAS DE SECCION ---------- */
 .ik-tag{
   display:inline-block;font-family:'Cormorant Garamond',serif;font-size:13px;
@@ -739,38 +775,47 @@ img,video{max-width:100%}
   </section>
 
   <!-- PAQUETES / A LA MEDIDA -->
-  <section id="paquetes" style="padding:96px 56px;border-bottom:1px solid rgba(32,31,29,0.12)">
-    <div class="ik-grid-2" style="display:grid;grid-template-columns:minmax(0,38%) minmax(0,1fr);gap:72px;align-items:start">
-      <div>
+  <section id="paquetes" class="ik-medida" style="padding:104px 56px;border-bottom:1px solid rgba(32,31,29,0.12)">
+    <span class="ik-loto ik-loto--medida" aria-hidden="true"></span>
+    <div class="ik-medida-grid">
+      <div class="ik-medida-intro">
         <span class="ik-tag">Eventos a la Medida</span>
-        <h2 class="ik-h2" style="max-width:18ch">Diseñamos tu experiencia corporativa desde cero</h2>
-        <p class="ik-lead" style="margin:0">En Hotel Ikaan Villa Spa no trabajamos con paquetes rígidos. Cada empresa es única, por lo que creamos propuestas 100% personalizadas según el objetivo de tu evento: <strong style="font-weight:600;color:#201f1d">productividad, integración, bienestar o celebración</strong>.</p>
+        <h2 class="ik-h2">Diseñamos tu experiencia corporativa <em>desde cero</em></h2>
+        <p class="ik-lead">En Hotel Ikaan Villa Spa no trabajamos con paquetes rígidos. Cada empresa es única, por lo que creamos propuestas 100% personalizadas según el objetivo de tu evento: <strong style="font-weight:600;color:#201f1d">productividad, integración, bienestar o celebración</strong>.</p>
       </div>
       <div>
-        <span style="display:block;font-size:10.5px;letter-spacing:0.14em;text-transform:uppercase;color:#79706B;font-weight:600;margin-bottom:8px">Componentes para armar tu evento</span>
-        <div style="border-top:1px solid rgba(32,31,29,0.14);margin-top:14px">
-        <div style="padding:26px 0;border-bottom:1px solid rgba(32,31,29,0.14)">
-          <h3 style="font-family:'Cormorant Garamond',serif;font-weight:600;font-size:22px;margin:0 0 10px;color:#201f1d">Espacios Versátiles</h3>
-          <p style="font-size:16px;line-height:1.7;color:rgba(32,31,29,0.72);margin:0;max-width:52ch">Explanada al aire libre (hasta 200 personas), Terraza panorámica de la Hacienda o Comedor Ejecutivo privado para juntas directivas.</p>
+        <span class="ik-medida-label">Componentes para armar tu evento</span>
+        <div class="ik-comp-grid">
+        <article class="ik-comp">
+          <span class="ik-comp-n">01</span>
+          <h3>Espacios Versátiles</h3>
+          <p>Explanada al aire libre (hasta 200 personas), Terraza panorámica de la Hacienda o Comedor Ejecutivo privado para juntas directivas.</p>
+        </article>
+        <article class="ik-comp">
+          <span class="ik-comp-n">02</span>
+          <h3>Gastronomía &amp; Catering</h3>
+          <p>Menús a tres tiempos, comidas ejecutivas, <i>coffee break</i> continuo o cocteles al aire libre en la terraza.</p>
+        </article>
+        <article class="ik-comp">
+          <span class="ik-comp-n">03</span>
+          <h3>Bienestar &amp; Mindfulness</h3>
+          <p>Sesiones de yoga en el jardín zen, meditación guiada en el laberinto espiral o experiencias de spa para tu equipo.</p>
+        </article>
+        <article class="ik-comp">
+          <span class="ik-comp-n">04</span>
+          <h3>Teambuilding &amp; Naturaleza</h3>
+          <p>Recorridos en kayak por el arroyo, dinámicas de integración en nuestras áreas verdes y actividades <i>outdoor</i>.</p>
+        </article>
+        <article class="ik-comp">
+          <span class="ik-comp-n">05</span>
+          <h3>Hospedaje &amp; Exclusividad</h3>
+          <p>Habitaciones ejecutivas para retiros de varios días con acceso total a las instalaciones del hotel.</p>
+        </article>
+          <a href="#contacto" class="ik-comp ik-comp--cta">
+            <h3>Diseñar mi evento a la medida</h3>
+            <span class="ik-comp-arrow" aria-hidden="true">→</span>
+          </a>
         </div>
-        <div style="padding:26px 0;border-bottom:1px solid rgba(32,31,29,0.14)">
-          <h3 style="font-family:'Cormorant Garamond',serif;font-weight:600;font-size:22px;margin:0 0 10px;color:#201f1d">Gastronomía &amp; Catering</h3>
-          <p style="font-size:16px;line-height:1.7;color:rgba(32,31,29,0.72);margin:0;max-width:52ch">Menús a tres tiempos, comidas ejecutivas, <i>coffee break</i> continuo o cocteles al aire libre en la terraza.</p>
-        </div>
-        <div style="padding:26px 0;border-bottom:1px solid rgba(32,31,29,0.14)">
-          <h3 style="font-family:'Cormorant Garamond',serif;font-weight:600;font-size:22px;margin:0 0 10px;color:#201f1d">Bienestar &amp; Mindfulness</h3>
-          <p style="font-size:16px;line-height:1.7;color:rgba(32,31,29,0.72);margin:0;max-width:52ch">Sesiones de yoga en el jardín zen, meditación guiada en el laberinto espiral o experiencias de spa para tu equipo.</p>
-        </div>
-        <div style="padding:26px 0;border-bottom:1px solid rgba(32,31,29,0.14)">
-          <h3 style="font-family:'Cormorant Garamond',serif;font-weight:600;font-size:22px;margin:0 0 10px;color:#201f1d">Teambuilding &amp; Naturaleza</h3>
-          <p style="font-size:16px;line-height:1.7;color:rgba(32,31,29,0.72);margin:0;max-width:52ch">Recorridos en kayak por el arroyo, dinámicas de integración en nuestras áreas verdes y actividades <i>outdoor</i>.</p>
-        </div>
-        <div style="padding:26px 0;border-bottom:1px solid rgba(32,31,29,0.14)">
-          <h3 style="font-family:'Cormorant Garamond',serif;font-weight:600;font-size:22px;margin:0 0 10px;color:#201f1d">Hospedaje &amp; Exclusividad</h3>
-          <p style="font-size:16px;line-height:1.7;color:rgba(32,31,29,0.72);margin:0;max-width:52ch">Habitaciones ejecutivas para retiros de varios días con acceso total a las instalaciones del hotel.</p>
-        </div>
-        </div>
-        <a href="#contacto" style="display:inline-block;margin-top:36px;font-family:'Cormorant Garamond',serif;font-size:18px;color:#7d5411;text-decoration:none;border:1px solid #b68235;border-radius:3px;padding:15px 30px" style-hover="background:rgba(182,130,53,0.1)">Diseñar mi evento a la medida</a>
       </div>
     </div>
   </section>

@@ -123,6 +123,38 @@ img,video{max-width:100%}
 @media (max-width:640px){.ik-comp-grid{grid-template-columns:1fr}.ik-loto--medida,.ik-medida::before{display:none}}
 @media (hover:none){.ik-comp:hover{transform:none}}
 @media (prefers-reduced-motion:reduce){.ik-comp,.ik-comp::before{transition:none}}
+/* ---------- POR QUE IKAAN: OPINIONES ---------- */
+/* Testimonios de clientes en tarjetas: comillas grandes verde agua, cita en serif y flor de loto al pie.
+   La tarjeta central va en verde agua para dar ritmo */
+.ik-opiniones{position:relative;isolation:isolate;overflow:hidden}
+.ik-opiniones::before{content:"";position:absolute;inset:0;z-index:-2;pointer-events:none;
+  background:radial-gradient(ellipse 60% 55% at 100% 100%,rgba(151,181,187,0.22) 0%,rgba(151,181,187,0.06) 50%,transparent 75%)}
+.ik-loto--opiniones{width:min(30vw,380px);aspect-ratio:1;right:-6%;bottom:-12%;opacity:.12;transform:rotate(12deg)}
+.ik-opiniones-head{margin-bottom:52px}
+.ik-opiniones-head .ik-tag{color:#3F696D;background:rgba(151,181,187,0.28)}
+.ik-opiniones-head .ik-h2{margin:0;max-width:none}
+.ik-opiniones-head .ik-h2 em{font-style:italic;color:#4F7E82}
+@media (min-width:641px){.ik-opiniones-head .ik-h2 em{white-space:nowrap}}
+.ik-testi-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;align-items:stretch}
+.ik-testi{position:relative;margin:0;display:flex;flex-direction:column;padding:34px 32px 30px;background:#f8f4f4;
+  border:1px solid rgba(151,181,187,0.45);border-radius:18px;box-shadow:0 2px 4px rgba(32,31,29,0.03),0 18px 36px -26px rgba(32,31,29,0.4);
+  transition:transform .35s cubic-bezier(.2,.7,.3,1),box-shadow .35s ease}
+.ik-testi::before{content:"";position:absolute;left:32px;top:0;width:40px;height:2px;background:#97b5bb}
+.ik-testi:hover{transform:translateY(-4px);box-shadow:0 8px 14px rgba(32,31,29,0.05),0 28px 44px -26px rgba(32,31,29,0.45)}
+.ik-testi-comillas{font-family:'Cormorant Garamond',serif;font-size:84px;line-height:.7;height:44px;color:#97b5bb}
+.ik-testi blockquote{flex:1;margin:0 0 26px;font-family:'Cormorant Garamond',serif;font-size:clamp(19px,1.5vw,22px);line-height:1.5;color:#201f1d}
+.ik-testi-flor{width:34px;aspect-ratio:1;background:#4F7E82;opacity:.7;
+  -webkit-mask:url("assets/ikaan-isotipo-mascara.webp?v=3") center/contain no-repeat;mask:url("assets/ikaan-isotipo-mascara.webp?v=3") center/contain no-repeat}
+.ik-testi--marca{background:#4F7E82;border-color:#4F7E82}
+.ik-testi--marca::before{background:#f5ecda}
+.ik-testi--marca .ik-testi-comillas{color:#cfe0e2}
+.ik-testi--marca blockquote{color:#f8f4f4}
+.ik-testi--marca .ik-testi-flor{background:#f5ecda;opacity:.85}
+@media (max-width:1024px){.ik-testi-grid{grid-template-columns:1fr;max-width:640px}}
+@media (max-width:640px){.ik-loto--opiniones,.ik-opiniones::before{display:none}.ik-testi{padding:28px 24px 24px}}
+@media (hover:none){.ik-testi:hover{transform:none}}
+@media (prefers-reduced-motion:reduce){.ik-testi{transition:none}}
+
 /* ---------- ETIQUETAS DE SECCION ---------- */
 .ik-tag{
   display:inline-block;font-family:'Cormorant Garamond',serif;font-size:13px;
@@ -514,7 +546,7 @@ img,video{max-width:100%}
             <a href="#espacios" onClick="{{ toggleMenu }}" style="color:#201f1d;text-decoration:none;font-size:14.5px;padding:10px 16px;border-radius:8px" style-hover="background:rgba(182,130,53,0.1);color:#7d5411">Espacios</a>
             <a href="#paquetes" onClick="{{ toggleMenu }}" style="color:#201f1d;text-decoration:none;font-size:14.5px;padding:10px 16px;border-radius:8px" style-hover="background:rgba(182,130,53,0.1);color:#7d5411">Paquetes</a>
             <a href="#integracion" onClick="{{ toggleMenu }}" style="color:#201f1d;text-decoration:none;font-size:14.5px;padding:10px 16px;border-radius:8px" style-hover="background:rgba(182,130,53,0.1);color:#7d5411">Actividades</a>
-            <a href="#testimonios" onClick="{{ toggleMenu }}" style="color:#201f1d;text-decoration:none;font-size:14.5px;padding:10px 16px;border-radius:8px" style-hover="background:rgba(182,130,53,0.1);color:#7d5411">Testimonios</a>
+            <a href="#por-que" onClick="{{ toggleMenu }}" style="color:#201f1d;text-decoration:none;font-size:14.5px;padding:10px 16px;border-radius:8px" style-hover="background:rgba(182,130,53,0.1);color:#7d5411">Testimonios</a>
             <a href="#contacto" onClick="{{ toggleMenu }}" style="color:#201f1d;text-decoration:none;font-size:14.5px;padding:10px 16px;border-radius:8px" style-hover="background:rgba(182,130,53,0.1);color:#7d5411">Contacto</a>
           </div>
         </sc-if>
@@ -871,28 +903,29 @@ img,video{max-width:100%}
     </div>
   </section>
 
-  <!-- POR QUE IKAAN -->
-  <section id="por-que" style="padding:96px 56px;border-bottom:1px solid rgba(32,31,29,0.12)">
-    <span class="ik-tag">Por qué Ikaan</span>
-    <h2 class="ik-h2" style="margin-bottom:48px">Por qué las empresas eligen Hotel Ikaan Villa Spa</h2>
-    <div class="ik-grid-2c" style="display:grid;grid-template-columns:1fr 1fr;gap:0 72px">
-      <div style="padding:0 0 26px;border-bottom:1px solid rgba(32,31,29,0.14);font-size:17.5px;line-height:1.55">Entorno natural que potencia el enfoque y la creatividad</div>
-      <div style="padding:0 0 26px;border-bottom:1px solid rgba(32,31,29,0.14);font-size:17.5px;line-height:1.55">Instalaciones amplias y versátiles para cualquier formato</div>
-      <div style="padding:26px 0;border-bottom:1px solid rgba(32,31,29,0.14);font-size:17.5px;line-height:1.55">Servicio personalizado y atención cercana</div>
-      <div style="padding:26px 0;border-bottom:1px solid rgba(32,31,29,0.14);font-size:17.5px;line-height:1.55">Experiencia holística que eleva los resultados del evento</div>
-      <div style="padding:26px 0;font-size:17.5px;line-height:1.55">Privacidad y exclusividad</div>
-      <div style="padding:26px 0;font-size:17.5px;line-height:1.55">Ubicación estratégica cerca de Monterrey</div>
-    </div>
-  </section>
-
-  <!-- TESTIMONIOS -->
-  <section id="testimonios" style="padding:96px 56px;border-bottom:1px solid rgba(32,31,29,0.12)">
-    <span class="ik-tag">Testimonios</span>
-    <h2 class="ik-h2" style="margin-bottom:48px">Empresas que confían en nosotros</h2>
-    <div class="ik-grid-3" style="display:grid;grid-template-columns:repeat(3,1fr);gap:48px">
-      <blockquote style="margin:0;font-size:17px;line-height:1.7;color:rgba(32,31,29,0.85)">“Agradecemos a Ikaan Villa Spa por hacer de nuestro evento Audi Q2 una gran experiencia que se vivió a través de diferentes actividades de relajación que te acercan a la naturaleza.”</blockquote>
-      <blockquote style="margin:0;font-size:17px;line-height:1.7;color:rgba(32,31,29,0.85)">“Un lugar ideal para llevar a cabo reuniones de integración. Nos trataron de maravilla.”</blockquote>
-      <blockquote style="margin:0;font-size:17px;line-height:1.7;color:rgba(32,31,29,0.85)">“El mejor lugar para llevar a cabo un fin de semana de trabajo diferente. El contacto con la naturaleza y las maravillosas instalaciones nos permitieron desarrollar las ideas y proyectos planeados.”</blockquote>
+  <!-- POR QUE IKAAN: opiniones de clientes -->
+  <section id="por-que" class="ik-opiniones" style="padding:96px 56px;border-bottom:1px solid rgba(32,31,29,0.12)">
+    <span class="ik-loto ik-loto--opiniones" aria-hidden="true"></span>
+    <header class="ik-opiniones-head">
+      <span class="ik-tag">Por qué Ikaan</span>
+      <h2 class="ik-h2">Por qué las empresas eligen <em>Hotel Ikaan Villa Spa</em></h2>
+    </header>
+    <div class="ik-testi-grid">
+      <figure class="ik-testi">
+        <span class="ik-testi-comillas" aria-hidden="true">“</span>
+        <blockquote>Agradecemos a Ikaan Villa Spa por hacer de nuestro evento Audi Q2 una gran experiencia que se vivió a través de diferentes actividades de relajación que te acercan a la naturaleza.</blockquote>
+        <span class="ik-testi-flor" aria-hidden="true"></span>
+      </figure>
+      <figure class="ik-testi ik-testi--marca">
+        <span class="ik-testi-comillas" aria-hidden="true">“</span>
+        <blockquote>Un lugar ideal para llevar a cabo reuniones de integración. Nos trataron de maravilla.</blockquote>
+        <span class="ik-testi-flor" aria-hidden="true"></span>
+      </figure>
+      <figure class="ik-testi">
+        <span class="ik-testi-comillas" aria-hidden="true">“</span>
+        <blockquote>El mejor lugar para llevar a cabo un fin de semana de trabajo diferente. El contacto con la naturaleza y las maravillosas instalaciones nos permitieron desarrollar las ideas y proyectos planeados.</blockquote>
+        <span class="ik-testi-flor" aria-hidden="true"></span>
+      </figure>
     </div>
   </section>
 

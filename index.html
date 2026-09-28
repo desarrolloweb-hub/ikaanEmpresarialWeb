@@ -155,6 +155,26 @@ img,video{max-width:100%}
 @media (hover:none){.ik-testi:hover{transform:none}}
 @media (prefers-reduced-motion:reduce){.ik-testi{transition:none}}
 
+/* Logos de clientes: fila continua que se desplaza sola; en gris tenue y a color al pasar el mouse.
+   Dos grupos identicos para que el ciclo no tenga salto; se pausa al pasar el mouse */
+.ik-logos{margin-top:80px;text-align:center}
+.ik-logos-titulo{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:clamp(24px,2.2vw,30px);color:#201f1d;margin:0 0 30px;
+  display:flex;align-items:center;gap:20px}
+.ik-logos-titulo::before,.ik-logos-titulo::after{content:"";flex:1;height:1px;background:#97b5bb}
+.ik-logos-pista{display:flex;overflow:hidden;
+  -webkit-mask-image:linear-gradient(to right,transparent,#000 10%,#000 90%,transparent);mask-image:linear-gradient(to right,transparent,#000 10%,#000 90%,transparent)}
+.ik-logos-grupo{display:flex;align-items:center;gap:clamp(48px,6vw,96px);padding-right:clamp(48px,6vw,96px);flex:none;
+  animation:ik-logos 40s linear infinite}
+.ik-logos-pista:hover .ik-logos-grupo{animation-play-state:paused}
+.ik-logos-grupo img{height:clamp(44px,4.2vw,62px);width:auto;max-width:190px;object-fit:contain;
+  filter:grayscale(1);opacity:.6;transition:filter .3s ease,opacity .3s ease}
+.ik-logos-grupo img:hover{filter:none;opacity:1}
+/* Logos cuadrados: mas altos para que pesen igual que los alargados */
+.ik-logos-grupo img.ik-logo-alto{height:clamp(58px,5.4vw,80px)}
+@keyframes ik-logos{to{transform:translateX(-100%)}}
+@media (prefers-reduced-motion:reduce){.ik-logos-grupo{animation:none}.ik-logos-pista{flex-wrap:wrap;justify-content:center}.ik-logos-grupo[aria-hidden]{display:none}}
+@media (hover:none){.ik-logos-grupo img{filter:none;opacity:.9}}
+
 /* ---------- ETIQUETAS DE SECCION ---------- */
 .ik-tag{
   display:inline-block;font-family:'Cormorant Garamond',serif;font-size:13px;
@@ -926,6 +946,13 @@ img,video{max-width:100%}
         <blockquote>El mejor lugar para llevar a cabo un fin de semana de trabajo diferente. El contacto con la naturaleza y las maravillosas instalaciones nos permitieron desarrollar las ideas y proyectos planeados.</blockquote>
         <span class="ik-testi-flor" aria-hidden="true"></span>
       </figure>
+    </div>
+    <div class="ik-logos">
+      <h3 class="ik-logos-titulo">Empresas que confían en nosotros</h3>
+      <div class="ik-logos-pista">
+        <div class="ik-logos-grupo"><img src="assets/logos/logo-techemet.webp" alt="Techemet" loading="lazy" decoding="async"><img class="ik-logo-alto" src="assets/logos/logo-scuda.webp" alt="Scuda" loading="lazy" decoding="async"><img class="ik-logo-alto" src="assets/logos/logo-qualtel.webp" alt="Qualtel" loading="lazy" decoding="async"><img src="assets/logos/logo-spotled.webp" alt="Spotled" loading="lazy" decoding="async"><img src="assets/logos/logo-techemet.webp" alt="Techemet" loading="lazy" decoding="async"><img class="ik-logo-alto" src="assets/logos/logo-scuda.webp" alt="Scuda" loading="lazy" decoding="async"><img class="ik-logo-alto" src="assets/logos/logo-qualtel.webp" alt="Qualtel" loading="lazy" decoding="async"><img src="assets/logos/logo-spotled.webp" alt="Spotled" loading="lazy" decoding="async"></div>
+        <div class="ik-logos-grupo" aria-hidden="true"><img src="assets/logos/logo-techemet.webp" alt="" loading="lazy" decoding="async"><img class="ik-logo-alto" src="assets/logos/logo-scuda.webp" alt="" loading="lazy" decoding="async"><img class="ik-logo-alto" src="assets/logos/logo-qualtel.webp" alt="" loading="lazy" decoding="async"><img src="assets/logos/logo-spotled.webp" alt="" loading="lazy" decoding="async"><img src="assets/logos/logo-techemet.webp" alt="" loading="lazy" decoding="async"><img class="ik-logo-alto" src="assets/logos/logo-scuda.webp" alt="" loading="lazy" decoding="async"><img class="ik-logo-alto" src="assets/logos/logo-qualtel.webp" alt="" loading="lazy" decoding="async"><img src="assets/logos/logo-spotled.webp" alt="" loading="lazy" decoding="async"></div>
+      </div>
     </div>
   </section>
 

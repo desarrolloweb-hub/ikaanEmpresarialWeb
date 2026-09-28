@@ -338,9 +338,9 @@ img,video{max-width:100%}
 /* Foto arriba que se desvanece en el crema; titulo, descripcion y "Cotizar" siempre sobre fondo claro
    (el titulo ya no pisa la foto). 3 por fila en laptops para que los textos no se estiren y no queden
    huecos; 6 en una fila solo en pantallas muy anchas */
-.ik-galeria{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));column-gap:20px;row-gap:0;grid-auto-rows:auto auto auto auto}
-/* Cada tarjeta ocupa 4 filas compartidas (foto, titulo, texto, enlace): titulos y "Cotizar" alineados entre tarjetas */
-.ik-galeria .ik-card{position:relative;isolation:isolate;display:grid;grid-row:span 4;grid-template-rows:subgrid;grid-template-columns:minmax(0,1fr);row-gap:0;margin-bottom:20px;
+.ik-galeria{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));column-gap:20px;row-gap:0;grid-auto-rows:auto auto auto}
+/* Cada tarjeta ocupa 3 filas compartidas (foto, titulo, texto, enlace): titulos y "Cotizar" alineados entre tarjetas */
+.ik-galeria .ik-card{position:relative;isolation:isolate;display:grid;grid-row:span 3;grid-template-rows:subgrid;grid-template-columns:minmax(0,1fr);row-gap:0;margin-bottom:20px;
   overflow:hidden;background:#f8f4f4;border:0;border-radius:16px;box-shadow:0 2px 6px rgba(32,31,29,0.08),0 20px 40px -24px rgba(32,31,29,0.5)}
 .ik-galeria .ik-card:hover{transform:translateY(-4px);border-color:transparent;box-shadow:0 8px 14px rgba(32,31,29,0.10),0 30px 50px -24px rgba(32,31,29,0.55)}
 .ik-galeria .ik-card-media{grid-row:1;position:relative;margin:0;background:#e4ded7;aspect-ratio:16/10;overflow:hidden;
@@ -357,7 +357,15 @@ img,video{max-width:100%}
 .ik-galeria .ik-card-tag::before{content:"";width:6px;height:6px;border-radius:50%;background:#b68235}
 .ik-galeria .ik-card h4{font-size:clamp(21px,1.7vw,26px);line-height:1.12;color:#201f1d}
 .ik-galeria .ik-card h4::after{content:"";display:block;width:26px;height:2px;background:#b68235;margin-top:9px}
-.ik-galeria .ik-card p{flex:none;font-size:14px;line-height:1.6;color:rgba(32,31,29,0.78);margin:0 0 16px}
+.ik-galeria .ik-card p{flex:none;font-size:14px;line-height:1.6;color:rgba(32,31,29,0.78);margin:0 0 22px}
+/* Un solo boton para toda la galeria, en lugar de "Cotizar" en cada tarjeta */
+.ik-galeria-cta{display:flex;justify-content:center;margin-top:20px}
+.ik-galeria-cta a{display:inline-flex;align-items:center;gap:12px;font-family:'Cormorant Garamond',serif;font-weight:600;font-size:19px;
+  color:#f8f4f4;background:#4F7E82;text-decoration:none;padding:16px 34px;border-radius:999px;
+  box-shadow:0 12px 26px -14px rgba(47,78,81,0.7);transition:background-color .25s ease,transform .25s ease}
+.ik-galeria-cta a::after{content:"→";font-family:'Lora',serif;font-size:16px;transition:transform .25s ease}
+.ik-galeria-cta a:hover{background:#3F696D;transform:translateY(-2px)}
+.ik-galeria-cta a:hover::after{transform:translateX(4px)}
 .ik-galeria .ik-card-cta{align-self:end;display:flex;justify-content:space-between;align-items:center;font-size:16px;
   color:#7d5411;border-bottom:0;border-top:1px solid rgba(32,31,29,0.14);padding:12px 0 0}
 .ik-galeria .ik-card:hover .ik-card-cta,.ik-galeria .ik-card-cta:hover{color:#b68235;border-color:rgba(32,31,29,0.24)}
@@ -676,7 +684,6 @@ img,video{max-width:100%}
         <span class="ik-card-tag">Hasta 500 personas</span>
         <h4>Explanada</h4>
         <p>Un amplio escenario al aire libre rodeado de naturaleza, ideal para conferencias magistrales, lanzamientos de marca, banquetes corporativos y actividades de integración a gran escala.</p>
-        <a href="#contacto" class="ik-card-cta">Cotizar</a>
         </div>
       </div>
       <div class="ik-card ik-card--claro">
@@ -687,7 +694,6 @@ img,video{max-width:100%}
         <span class="ik-card-tag">Reuniones privadas</span>
         <h4>Hacienda</h4>
         <p>Espacios exclusivos para que puedas realizar reuniones con tu equipo dentro de una sala privada equipada con una amplia mesa directiva. Ideal para sesiones de planeación estratégica, comidas de negocios y juntas en un ambiente privado.</p>
-        <a href="#contacto" class="ik-card-cta">Cotizar</a>
         </div>
       </div>
       <div class="ik-card ik-card--claro">
@@ -698,7 +704,6 @@ img,video{max-width:100%}
         <span class="ik-card-tag">Al aire libre</span>
         <h4>Jardines para Teambuilding</h4>
         <p>El equilibrio perfecto entre profesionalismo y naturaleza, espacios diseñados para que puedas reconectar con tu equipo, llevar a cabo actividades al aire libre y realizar sesiones de yoga, aprovechando la tranquilidad del entorno.</p>
-        <a href="#contacto" class="ik-card-cta">Cotizar</a>
         </div>
       </div>
       <div class="ik-card ik-card--claro">
@@ -709,7 +714,6 @@ img,video{max-width:100%}
         <span class="ik-card-tag">Meditación</span>
         <h4>Laberinto</h4>
         <p>Un lugar místico, ideal para realizar sesiones de meditación guiada y paseos al aire libre. Un espacio único para reconectar con uno mismo y la naturaleza.</p>
-        <a href="#contacto" class="ik-card-cta">Cotizar</a>
         </div>
       </div>
       <div class="ik-card ik-card--claro">
@@ -720,7 +724,6 @@ img,video{max-width:100%}
         <span class="ik-card-tag">Bienestar</span>
         <h4>Jardín Zen</h4>
         <p>Un espacio ideal para realizar caminatas y sesiones de meditación con tu equipo. Este lugar los llevará a relajarse y poder mejor con el entorno y consigo mismos.</p>
-        <a href="#contacto" class="ik-card-cta">Cotizar</a>
         </div>
       </div>
       <div class="ik-card ik-card--claro">
@@ -731,10 +734,10 @@ img,video{max-width:100%}
         <span class="ik-card-tag">Descanso</span>
         <h4>Área de Piscina</h4>
         <p>Un espacio al aire libre para relajarse entre sesiones, convivir con tu equipo y cerrar la jornada en un ambiente tranquilo y rodeado de naturaleza.</p>
-        <a href="#contacto" class="ik-card-cta">Cotizar</a>
         </div>
       </div>
     </div>
+    <div class="ik-galeria-cta"><a href="#contacto">Cotizar mi evento</a></div>
 
   </section>
 

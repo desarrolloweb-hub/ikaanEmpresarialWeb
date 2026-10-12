@@ -110,11 +110,11 @@ img,video{max-width:100%}
 .ik-medida-intro .ik-lead{margin:0;font-size:17px;padding-left:18px;border-left:2px solid #97b5bb}
 .ik-medida-label{display:block;font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:#4F7E82;font-weight:600;margin-bottom:18px}
 .ik-comp-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
-.ik-comp{position:relative;display:flex;flex-direction:column;padding:26px 26px 28px;background:#f8f4f4;border:1px solid rgba(151,181,187,0.4);
+.ik-comp{position:relative;display:flex;flex-direction:column;padding:26px 26px 28px;background:#d9e7e9;border:1px solid rgba(79,126,130,0.25);
   border-radius:14px;box-shadow:0 2px 4px rgba(32,31,29,0.03),0 14px 28px -22px rgba(32,31,29,0.35);
   transition:transform .35s cubic-bezier(.2,.7,.3,1),box-shadow .35s ease,border-color .3s ease}
-.ik-comp::before{content:"";position:absolute;left:26px;top:0;width:36px;height:2px;background:#97b5bb;transition:width .35s ease}
-.ik-comp:hover{transform:translateY(-4px);border-color:#97b5bb;box-shadow:0 8px 14px rgba(32,31,29,0.05),0 26px 40px -24px rgba(32,31,29,0.4)}
+.ik-comp::before{content:"";position:absolute;left:26px;top:0;width:36px;height:2px;background:#4F7E82;transition:width .35s ease}
+.ik-comp:hover{transform:translateY(-4px);background:#cfe1e3;border-color:#97b5bb;box-shadow:0 8px 14px rgba(32,31,29,0.05),0 26px 40px -24px rgba(32,31,29,0.4)}
 .ik-comp:hover::before{width:72px}
 .ik-comp-n{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:15px;color:#4F7E82;margin-bottom:14px}
 .ik-comp h3{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:23px;line-height:1.2;margin:0 0 10px;color:#201f1d}
@@ -285,7 +285,10 @@ img,video{max-width:100%}
   -webkit-mask-image:linear-gradient(to bottom,transparent 0%,#000 30%,#000 62%,transparent 94%);mask-image:linear-gradient(to bottom,transparent 0%,#000 30%,#000 62%,transparent 94%)}
 .ik-cf{display:grid;grid-template-columns:minmax(0,0.92fr) minmax(0,1fr);max-width:1180px;margin:0 auto;
   background:#fff;border-radius:24px;overflow:hidden;
-  box-shadow:0 1px 2px rgba(32,31,29,0.06),0 24px 60px -28px rgba(32,31,29,0.30)}
+  box-shadow:0 1px 2px rgba(32,31,29,0.05),0 24px 48px -16px rgba(32,31,29,0.22),0 80px 140px -40px rgba(32,31,29,0.45)}
+/* Mas aire abajo para que la sombra profunda se desvanezca antes del borde de la seccion */
+#contacto{padding-bottom:150px!important}
+@media (max-width:640px){#contacto{padding-bottom:72px!important}}
 .ik-cf-media{position:relative;min-height:600px;color:#f8f4f4;isolation:isolate;display:flex;flex-direction:column;justify-content:space-between;padding:36px 40px}
 .ik-cf-media::after{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;
   background:linear-gradient(180deg,rgba(24,23,21,0.45) 0%,rgba(24,23,21,0.05) 30%,rgba(47,78,81,0.25) 55%,rgba(47,78,81,0.88) 100%)}
@@ -304,16 +307,20 @@ img,video{max-width:100%}
 
 .ik-cf-panel{padding:56px clamp(28px,4.5vw,64px);display:flex;flex-direction:column;justify-content:center}
 .ik-cf-tag{font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:#3F696D;font-weight:600;margin-bottom:12px}
-.ik-cf-title{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:clamp(30px,3vw,40px);line-height:1.1;color:#201f1d;margin:0 0 34px}
+.ik-cf-title{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:clamp(30px,3vw,40px);line-height:1.1;color:#201f1d;margin:0 0 12px}
+.ik-cf-lead{font-family:'Lora',serif;font-size:15px;line-height:1.6;color:#4a4643;margin:0 0 30px;max-width:42ch}
 .ik-cf-form{display:flex;flex-direction:column;gap:18px}
 .ik-cf-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
 .ik-cf-field label{display:block;font-family:'Lora',serif;font-size:13px;color:#4a4643;margin-bottom:8px}
-.ik-cf-field input{width:100%;height:48px;padding:0 14px;font-family:'Lora',serif;font-size:15px;color:#201f1d;
+.ik-cf-field input,.ik-cf-field select{width:100%;height:48px;padding:0 14px;font-family:'Lora',serif;font-size:15px;color:#201f1d;
   background:#f5f9f9;border:1px solid rgba(151,181,187,0.55);border-radius:10px;
   transition:border-color .2s ease,box-shadow .2s ease}
+.ik-cf-field select{-webkit-appearance:none;appearance:none;padding-right:40px;cursor:pointer;
+  background:#f5f9f9 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1.5l5 5 5-5' fill='none' stroke='%233F696D' stroke-width='1.5'/%3E%3C/svg%3E") right 16px center/12px 8px no-repeat}
+.ik-cf-field select:has(option[value=""]:checked){color:rgba(32,31,29,0.38)}
 .ik-cf-field input::placeholder{color:rgba(32,31,29,0.38)}
-.ik-cf-field input:hover{border-color:#97b5bb}
-.ik-cf-field input:focus{outline:none;background:#fff;border-color:#97b5bb;box-shadow:0 0 0 3px rgba(151,181,187,0.35)}
+.ik-cf-field input:hover,.ik-cf-field select:hover{border-color:#97b5bb}
+.ik-cf-field select:focus,.ik-cf-field input:focus{outline:none;background:#fff;border-color:#97b5bb;box-shadow:0 0 0 3px rgba(151,181,187,0.35)}
 .ik-cf-submit{margin-top:10px;height:52px;border:0;border-radius:10px;background:#97b5bb;color:#201f1d;box-shadow:0 10px 22px -12px rgba(151,181,187,0.9);
   font-family:'Lora',serif;font-size:15px;font-weight:600;letter-spacing:0.02em;cursor:pointer;
   transition:background-color .2s ease,transform .15s ease}
@@ -461,7 +468,7 @@ img,video{max-width:100%}
    hacia el #f3f2f2 de la pagina. El texto del hero sube para quedar sobre la parte oscura */
 /* El espacio extra del desvanecido escala con la altura de la pantalla: en laptops bajas
    (~650px utiles) un valor fijo empujaba el titulo debajo del menu */
-.ik-hero-copy{padding-bottom:calc(min(72px,8vh) + min(70px,8vh))!important;max-width:980px!important}
+.ik-hero-copy{padding-bottom:min(80px,9vh)!important;max-width:980px!important}
 /* El titulo escala con el ancho Y el alto; mas ancho para que quepa en 2-3 lineas */
 .ik-hero-copy h1{font-size:clamp(38px,min(5.4vw,9vh),74px)!important}
 /* Nunca menos que menu + texto: si la pantalla es muy baja, el hero crece en vez de encimarse */
@@ -469,10 +476,12 @@ img,video{max-width:100%}
    si la pantalla es muy baja, el hero crece en vez de meter el titulo debajo del menu */
 .ik-hero{min-height:max(560px,88vh)!important;height:auto!important;display:flex;flex-direction:column;justify-content:flex-end;padding-top:130px!important;padding-left:0!important;padding-right:0!important}
 .ik-hero-copy{position:relative!important;z-index:1}
-.ik-hero::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:min(140px,15vh);pointer-events:none;
-  background:linear-gradient(to bottom,
-    rgba(243,242,242,0) 0%,rgba(243,242,242,0.08) 18%,rgba(243,242,242,0.28) 36%,
-    rgba(243,242,242,0.55) 55%,rgba(243,242,242,0.82) 75%,#f3f2f2 100%)}
+/* Etiqueta del hero en placa verde agua: deja claro de entrada que el sitio es de eventos empresariales */
+.ik-hero-tag{display:block;margin-bottom:22px;color:#f8f4f4;
+  font-family:'Lora',serif;font-size:clamp(14px,1.15vw,17px);font-weight:600;letter-spacing:0.24em;text-transform:uppercase}
+.ik-hero-copy h1{font-weight:600!important}
+/* Corte limpio abajo: la foto termina en seco y una sombra suave la despega del fondo gris */
+.ik-hero{z-index:2;box-shadow:0 18px 40px -12px rgba(32,31,29,0.28),0 40px 90px -30px rgba(32,31,29,0.3)}
 /* El hero mide 88vh: el resto de la pantalla mas un margen, para que el formulario no asome al abrir la pagina */
 #contacto{padding-top:calc(12vh + 48px)!important}
 
@@ -526,8 +535,9 @@ img,video{max-width:100%}
   .ik-grid-2c>div{border-left:0!important;padding-left:0!important;padding-right:0!important}
   /* Hero: mismo montaje, mas corto y con el texto pegado al borde de 20px */
   .ik-hero{min-height:max(480px,72vh)!important;padding-top:110px!important;padding-bottom:0!important}
-  .ik-hero-copy{padding:0 20px calc(40px + 60px)!important}
-  .ik-hero::after{height:100px!important}
+  .ik-hero-copy{padding:0 20px 44px!important}
+  /* En celular el texto ocupa todo el ancho: el velo va de abajo hacia arriba */
+  .ik-hero-velo{background:linear-gradient(180deg,rgba(20,19,17,0.45) 0%,rgba(20,19,17,0.2) 30%,rgba(20,19,17,0.5) 60%,rgba(20,19,17,0.8) 100%)!important}
   #contacto{padding-top:40px!important}
   .ik-hero-copy h1{font-size:34px!important}
   .ik-hero-copy a{flex:1 1 100%;text-align:center}
@@ -585,9 +595,9 @@ img,video{max-width:100%}
     <div class="ik-hero-media" style="position:absolute;inset:0">
       <image-slot id="hero-bg" shape="rect" src="assets/salon-candiles-montaje.webp" alt="Salón de la Hacienda montado para conferencia, con sillas en filas, pantalla de proyección y candiles de hierro" style="width:100%;height:100%"></image-slot>
     </div>
-    <div style="position:absolute;inset:0;background:linear-gradient(180deg, rgba(32,31,29,0.32) 0%, rgba(32,31,29,0.42) 45%, rgba(32,31,29,0.72) 100%);pointer-events:none"></div>
+    <div class="ik-hero-velo" style="position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg, rgba(20,19,17,0.5) 0%, rgba(20,19,17,0) 24%), linear-gradient(90deg, rgba(20,19,17,0.78) 0%, rgba(20,19,17,0.55) 32%, rgba(20,19,17,0.18) 62%, rgba(20,19,17,0.08) 100%)"></div>
     <div class="ik-hero-copy" style="position:absolute;left:0;right:0;bottom:0;padding:0 56px 72px;max-width:760px;color:#f8f4f4">
-      <span style="display:block;font-size:13px;letter-spacing:0.14em;text-transform:uppercase;margin-bottom:16px;opacity:0.85">Eventos empresariales</span>
+      <span class="ik-hero-tag">Eventos empresariales</span>
       <h1 style="font-family:'Cormorant Garamond',serif;font-weight:400;font-size:clamp(42px,6vw,74px);line-height:1.08;margin:0;text-box:trim-both cap alphabetic">Un espacio diseñado para inspirar y reconectar con tu equipo</h1>
       <div style="display:flex;gap:16px;margin-top:34px;flex-wrap:wrap">
         <a href="#contacto" style="display:inline-flex;align-items:center;font-family:'Cormorant Garamond',serif;font-weight:600;font-size:15px;color:#201f1d;border:1px solid #f8f4f4;border-radius:4px;padding:14px 28px;text-decoration:none;background-color:#97b5bb" style-hover="background:#eae7e7">Cotizar mi evento</a>
@@ -614,6 +624,7 @@ img,video{max-width:100%}
       <div class="ik-cf-panel">
         <span class="ik-cf-tag">Contacto</span>
         <h2 class="ik-cf-title">Solicita Información</h2>
+        <p class="ik-cf-lead">Cuéntanos sobre tu evento y te enviamos una propuesta a la medida.</p>
         <form onSubmit="{{ handleSubmit }}" class="ik-cf-form">
         <sc-if value="{{ submitted }}" hint-placeholder-val="{{ false }}">
           <div class="ik-cf-ok">Gracias — hemos recibido tu solicitud. Te contactaremos pronto.</div>
@@ -632,6 +643,23 @@ img,video{max-width:100%}
           <div class="ik-cf-field">
             <label for="cf-empresa">Empresa o Institución</label>
             <input id="cf-empresa" name="empresa" type="text" autoComplete="organization" placeholder="Nombre de la empresa">
+          </div>
+          <div class="ik-cf-row">
+            <div class="ik-cf-field">
+              <label for="cf-tipo">Tipo de evento</label>
+              <select id="cf-tipo" name="tipo">
+                <option value="">Selecciona una opción</option>
+                <option value="Conferencia o capacitación">Conferencia o capacitación</option>
+                <option value="Junta directiva">Junta directiva</option>
+                <option value="Teambuilding">Teambuilding</option>
+                <option value="Retiro de bienestar">Retiro de bienestar</option>
+                <option value="Otro">Otro</option>
+              </select>
+            </div>
+            <div class="ik-cf-field">
+              <label for="cf-personas">Número de personas</label>
+              <input id="cf-personas" name="personas" type="number" min="1" inputMode="numeric" placeholder="Ej. 40">
+            </div>
           </div>
           <div class="ik-cf-row">
             <div class="ik-cf-field">
@@ -874,7 +902,7 @@ img,video{max-width:100%}
         </figure>
         <div class="ik-card-body">
         <span class="ik-card-tag">Relajación</span>
-        <h4>Área de Piscina</h4>
+        <h4>Actividades en el agua</h4>
         <p>Un espacio para descansar entre sesiones de trabajo, convivir con tu equipo y disfrutar del clima de Montemorelos en un ambiente relajado.</p>
         <a href="#contacto" class="ik-card-cta">Cotizar</a>
         </div>
@@ -889,7 +917,7 @@ img,video{max-width:100%}
       <div class="ik-medida-intro">
         <span class="ik-tag">Eventos a la Medida</span>
         <h2 class="ik-h2">Diseñamos tu experiencia corporativa <em>desde cero</em></h2>
-        <p class="ik-lead">En Hotel Ikaan Villa Spa no trabajamos con paquetes rígidos. Cada empresa es única, por lo que creamos propuestas 100% personalizadas según el objetivo de tu evento: <strong style="font-weight:600;color:#201f1d">productividad, integración, bienestar o celebración</strong>.</p>
+        <p class="ik-lead">En Ikaan Villa Spa no trabajamos con paquetes rígidos. Cada empresa es única, por lo que creamos propuestas 100% personalizadas según el objetivo de tu evento: <strong style="font-weight:600;color:#201f1d">productividad, integración, bienestar o celebración</strong>.</p>
       </div>
       <div>
         <span class="ik-medida-label">Componentes para armar tu evento</span>
@@ -934,7 +962,7 @@ img,video{max-width:100%}
     <span class="ik-loto ik-loto--opiniones" aria-hidden="true"></span>
     <header class="ik-opiniones-head">
       <span class="ik-tag">Por qué Ikaan</span>
-      <h2 class="ik-h2">Por qué las empresas eligen <em>Hotel Ikaan Villa Spa</em></h2>
+      <h2 class="ik-h2">Por qué las empresas eligen <em>Ikaan Villa Spa</em></h2>
     </header>
     <div class="ik-testi-grid">
       <figure class="ik-testi">
